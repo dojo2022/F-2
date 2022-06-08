@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* メニューはじまり */
+.menu {
+  float: left;
+  height: 100%;
+}
+
+ul.menu_ber {
+	width: 200px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #eeeeee;
+}
+
+li.menu_content a {
+	display: block;
+	padding: 8px 16px;
+	text-decoration: none;
+	color: #000000;
+}
+
+li.menu_content {
+	text-align: center;
+}
+
+li.menu_content:last-child {
+	border-bottom: none;
+}
+
+li.menu_content a.active {
+	color: #ffffff;
+	background-color: #da3c41;
+}
+
+li.menu_content a:hover:not(.active) {
+	color: #ffffff;
+	background-color: #1b2538;
+}
+
+li.menu_content_image{
+  position: relative;
+  margin-top: 100%;
+}
+
+/* メニューおわり */
+
+/* エクストラ画面はじまり */
+.extradiv{
+  margin: 0px;
+  padding: 10px;
+  border-style: solid;
+  font-size: 20px;
+  float: left;
+}
+
+.aboutli{
+  list-style: none;
+}
+
+.extrali{
+  margin: 0px;
+  border-style: solid;
+  list-style: none;
+}
+
+.newline{
+  float: left;
+}
+/* エクストラ画面おわり */
