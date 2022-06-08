@@ -1,0 +1,26 @@
+@charset "UTF-8"; /* 文字コード全体に適用*/
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css); */
+/* 全てのwebページに適用される*/
+body, html {
+    height: 100%;
+}
+
+html *{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 100;
+    /**display: flex;**/
+    overflow-y: scroll;
+    background-color: #3c3c70;
+    color: #dbf523;
+}
+
+.title {
+	color: red;
+}
+
+
