@@ -10,21 +10,27 @@
 <body>
   <!-- メイン -->
     <!-- メニューはじまり -->
-    <!-- メニュー以外の画面をdivタグで囲んでcssで float: left; で左右配置できます-->
   <main>
-    <div class="menu">
-      <ul class="menu_ber">
-      	<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
-      	<li class="menu_content"><a class="menu_add" href="#">タスク確認</a></li>
-      	<li class="menu_content"><a class="menu_add" href="#">タスク追加</a></li>
-      	<li class="menu_content"><a class="menu_add" href="#">エクストラモード<br>about</a></li>
-        <li class="menu_content_image"><a class="menu_add">キャラクターイメージ</a></li>
-      </ul>
-    </div>
+    <div class="parent">
+      <div class="menu">
+        <ul class="menu_ber">
+        	<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskListServlet">タスク確認</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/ExtraServlet">エクストラモード<br>about</a></li>
+          <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
+        </ul>
+      </div>
 
     <!-- メニューおわり -->
+
     <!-- エクストラ画面はじまり -->
     <div class="extradiv">
+      <!-- ヘッダーはじまり -->
+      <div class="menu_header">
+        エクストラモード
+      </div>
+      <!-- ヘッダーおわり -->
       <ul>
           <li class="aboutli">【使い方】</li>
           <li class="aboutli">タスク確認では...</li>
@@ -52,6 +58,7 @@
       </ul>
     </div>
     <!-- エクストラ画面おわり -->
+  </div>
   </main>
   <!-- メインおわり -->
 
@@ -80,5 +87,6 @@
   recalc();
   /* 時計おわり */
 </script>
+
 </body>
 </html>
