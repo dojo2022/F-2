@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+div#table {
+  width: 750px;
+  height: 350px;
+  overflow: auto;		/* はみ出した場合は、スクロールバーを表示する */
+  font-weight:1000;
+  font-size: 22px;
+}
+table#list th, table#list td {
+  border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  padding: 4px 16px 4px 0;
+  text-align: left;
+  white-space: nowrap;		/* 折り返さない */
+  font-weight:1000;
+}
+
+
+ul {
+	width: 300px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #eeeeee;
+}
+li a {
+	display: block;
+	padding: 8px 16px;
+	text-decoration: none;
+	color: #000000;
+}
+li {
+	text-align: center;
+}
+li:last-child {
+	border-bottom: none;
+}
+li a.active {
+	color: #ffffff;
+	background-color: #da3c41;
+}
+li a:hover:not(.active) {
+	color: #ffffff;
+	background-color: #1b2538;
+}
