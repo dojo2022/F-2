@@ -1,16 +1,16 @@
 package model;
 import java.io.Serializable;
 
-public class Idpw implements Serializable {
+public class Users implements Serializable {
 	private String id;	// ID
 	private String pw;	// PW
 
-	public Idpw(String id, String pw) {
+	public Users(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
 	}
 
-	public Idpw() {
+	public Users() {
 		this.id = "";
 		this.pw = "";
 	}
