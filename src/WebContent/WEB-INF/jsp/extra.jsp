@@ -18,7 +18,7 @@
         	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskListServlet">タスク確認</a></li>
         	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
         	<li class="menu_content"><a class="menu_add" href="/imoketu/ExtraServlet">エクストラモード<br>about</a></li>
-          <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
+          <li class="menu_content_image"><a class="menu_add">キャラクターイメージを差し込む</a></li>
         </ul>
       </div>
 
