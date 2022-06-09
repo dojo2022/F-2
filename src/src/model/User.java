@@ -2,14 +2,14 @@ package model;
 
 import java.io.Serializable;
 
-public class LoginUser implements Serializable {
+public class User implements Serializable {
 	private String id;	// ログイン時のID
 
-	public LoginUser() {
+	public User() {
 		this(null);
 	}
 
-	public LoginUser(String id) {
+	public User(String id) {
 		this.id = id;
 	}
 
