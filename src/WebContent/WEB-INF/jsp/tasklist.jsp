@@ -22,7 +22,17 @@
       <div ><th>タスク名</th><th>期限</th><th>状態</th><th>状態操作</th></div>
     </tr>
 <c:forEach var="e" items="${taskList}" >
+		<c:if test="${e.state} == '未着手' }" >
     <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="start${e.id}" name="submit" value="着手"><input type="submit" id="complete${e.id}" name="submit" value="完了"><input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+    </c:if>
+
+    <c:if test="${e.state} == '着手' }" >
+    <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="complete${e.id}" name="submit" value="完了"><input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+    </c:if>
+
+    <c:if test="${e.state} == '完了' }" >
+    <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+    </c:if>
 </c:forEach>
   </table>
   </div>
