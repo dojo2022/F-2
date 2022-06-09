@@ -15,12 +15,32 @@ body {
     font-weight: 100;
     /**display: flex;**/
     overflow-y: scroll;
-    background-color: #3c3c70;
-    color: #dbf523;
 }
 
+.adddiv {
+	width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.add_header {
+  height: 40px;
+  padding: 5px;
+  text-align: left;
+  border-style: solid;
+}
 .title {
-	color: red;
+	text-align: center;
 }
 
+.title-name{
+    width: 210px;
+    height: 40px;
+}
+
+.datetime {
+    width: 210px;
+    height: 40px;
+    margin-bottom: 30px;
+}
 
