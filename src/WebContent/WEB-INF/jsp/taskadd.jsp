@@ -26,7 +26,7 @@
      </div>
 <div class="title">
 <!-- フォーム -->
-<form action="/imoketu/" class="add_form" id="add_form" method="POST">
+<form action="/imoketu/TaskAddServlet" class="add_form" id="add_form" method="POST">
 	<h1>タイトル</h1>
 		<input type="text" placeholder="タスクタイトルを入力して下さい"class="title-name" name="titleName">
 	<h1>期限</h1>
