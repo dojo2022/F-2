@@ -76,7 +76,8 @@ public class LoginServlet extends HttpServlet {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/imoketu", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
+			System.out.println("接続成功!!");
 
 			// SELECT文を準備する
 			String sql = "select count(*) from USER where User_Id = ? and User_Password = ?";

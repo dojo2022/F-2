@@ -1,6 +1,13 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.Tasks;
 
 /**
  * Servlet implementation class TaskListServlet
@@ -32,28 +42,31 @@ public class TaskListServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/imoketu/LoginServlet");
 			return;
-		}*/
+		}
 
-		//List<Task> taskList = bDao.list();
+		int LoginUser =  (int)session.getAttribute("id");
+		System.out.println(LoginUser);
 
-		/*
+
+
 		 Connection conn = null;
-			List<Task> taskList = new ArrayList<Task>();
+		 List<Tasks> taskList = new ArrayList<Tasks>();
 
 			try {
 				// JDBCドライバを読み込む
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+				conn = (Connection) DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
 
 				// SQL文を準備する<ここを改造>
-				String sql = "select * from Task ORDER BY NUMBER";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
+				String sql = "select * from Task WHERE USER_ID = LoginUser";
+				PreparedStatement pStmt = ((java.sql.Connection) conn).prepareStatement(sql);
 
 
 				// SQL文を実行し、結果表を取得する
@@ -61,17 +74,14 @@ public class TaskListServlet extends HttpServlet {
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					Task task = new Task(
-					rs.getString("NUMBER"),
-					rs.getString("NAME"),
-					rs.getString("ZIPCODE"),
-					rs.getString("ADDRESS"),
-					rs.getString("COMPANY"),
-					rs.getString("DEPARTMENT"),
-					rs.getString("TEL"),
-					rs.getString("MAIL")
+					Tasks tasks = new Tasks(
+					rs.getInt("TASK_ID"),
+					rs.getString("TASK_NAME"),
+					rs.getString("TASK_LIMIT"),
+					rs.getInt("STATE_FLAG"),
+					rs.getString("USER_ID")
 					);
-					taskList.add(task);
+					taskList.add(tasks);
 				}
 			}
 			catch (SQLException e) {
@@ -87,18 +97,17 @@ public class TaskListServlet extends HttpServlet {
 				if (conn != null) {
 					try {
 						conn.close();
-					}
-					catch (SQLException e) {
+					} catch (SQLException e) {
+						// TODO 自動生成された catch ブロック
 						e.printStackTrace();
-						taskList = null;
 					}
 				}
 			}
 
-		  */
+
 
 		// 結果をリクエストスコープに格納する
-		//request.setAttribute("taskList", taskList);
+		request.setAttribute("taskList", taskList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/tasklist.jsp");
 		dispatcher.forward(request, response);
