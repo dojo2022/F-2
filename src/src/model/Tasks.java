@@ -1,62 +1,56 @@
 package model;
-
-
 public class Tasks {
-  private Integer taskId;
-  private String taskName;
-  private String taskLimit;
-  private Integer stateFlag;
-  private Integer userId;
-
-public Tasks(Integer taskId, String taskName, String taskLimit,
-		Integer stateFlag, Integer userId) {
+  private Integer taskid;
+  private String taskname;
+  private String tasklimit;
+  private Integer stateflag;
+  private String userid;
+public Tasks(Integer taskid, String taskname, String tasklimit,
+		Integer stateflag, String userid) {
 	super();
-	this.taskId = taskId;
-	this.taskName = taskName;
-	this.taskLimit = taskLimit;
-	this.stateFlag = stateFlag;
-	this.userId = userId;
+	this.taskid = taskid;
+	this.taskname = taskname;
+	this.tasklimit = tasklimit;
+	this.stateflag = stateflag;
+	this.userid = userid;
 }
 //引数がないコンストラクタ
 public Tasks() {
 	super();
-	this.taskId = null;
-	this.taskName = "";
-	this.taskLimit = "";
-	this.stateFlag = null;
-	this.userId = null;
+	this.taskid = null;
+	this.taskname = "";
+	this.tasklimit = "";
+	this.stateflag = null;
+	this.userid = null;
 }
-
-//getterとsetter
-public Integer getTaskId() {
-	return taskId;
+public Integer getTaskid() {
+	return taskid;
 }
-public void setTaskId(Integer taskId) {
-	this.taskId = taskId;
+public void setTaskid(Integer taskid) {
+	this.taskid = taskid;
 }
-public String getTaskName() {
-	return taskName;
+public String getTaskname() {
+	return taskname;
 }
-public void setTaskName(String taskName) {
-	this.taskName = taskName;
+public void setTaskname(String taskname) {
+	this.taskname = taskname;
 }
-public String getTaskLimit() {
-
-	return taskLimit;
+public String getTasklimit() {
+	return tasklimit;
 }
-public void setTaskLimit(String taskLimit) {
-	this.taskLimit = taskLimit;
+public void setTasklimit(String tasklimit) {
+	this.tasklimit = tasklimit;
 }
-public Integer getStateFlag() {
-	return stateFlag;
+public Integer getStateflag() {
+	return stateflag;
 }
-public void setStateFlag(Integer stateFlag) {
-	this.stateFlag = stateFlag;
+public void setStateflag(Integer stateflag) {
+	this.stateflag = stateflag;
 }
-public Integer getUserId() {
-	return userId;
+public String getUserid() {
+	return userid;
 }
-public void setUserId(Integer userId) {
-	this.userId = userId;
+public void setUserid(String userid) {
+	this.userid = userid;
 }
 }
