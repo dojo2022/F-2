@@ -1,21 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+  </script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>いもケツ</title>
-<link rel="stylesheet" type="text/css" href="/imoketu/css/tasklist.css">
+<link rel="stylesheet" href="/imoketu/css/tasklist.css">
+<link rel="stylesheet" href="/imoketu/css/common.css">
 </head>
 <body>
 
-<ul>
- 	<li><a class="active" href="#home">Home</a></li>
- 	<li><a href="#tasklist">タスク確認</a></li>
- 	<li><a href="#taskadd">タスク追加</a></li>
- 	<li><a href="#about">エクストラモード・about</a></li>
-</ul>
+<div class="parent">
+      <div class="menu">
+        <ul class="menu_ber">
+        	<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskListServlet">タスク確認</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
+        	<li class="menu_content"><a class="menu_add" href="/imoketu/ExtraServlet">エクストラモード<br>about</a></li>
+          <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
+        </ul>
+      </div>
+    <!-- 追加画面始まり -->
 <div id="table">
   <table id="list">
     <tr class="columnitem">
@@ -23,19 +34,48 @@
     </tr>
 <c:forEach var="e" items="${taskList}" >
 		<c:if test="${e.state} == '未着手' }" >
-    <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="start${e.id}" name="submit" value="着手"><input type="submit" id="complete${e.id}" name="submit" value="完了"><input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+		<tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td> <input type="submit" id="start${e.id}" name="submit" value="着手" onclick="startClick(${e.id});"><input type="submit" id="complete${e.id}" name="submit" value="完了" onclick="completeClick(${e.id});"><input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
     </c:if>
 
     <c:if test="${e.state} == '着手' }" >
-    <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="complete${e.id}" name="submit" value="完了"><input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+    <tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td><input type="submit" id="complete${e.id}" name="submit" value="完了" onclick="completeClick(${e.id});"><input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
     </c:if>
 
     <c:if test="${e.state} == '完了' }" >
-    <tr class="data_row"> <td>${e.name}</td><td>${e.Limit}</td><td>${e.state}</td><td> <input type="submit" id="delete${e.id}" name="submit" value="削除"></td></tr>
+    <tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td> <input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
     </c:if>
 </c:forEach>
   </table>
   </div>
-<script></script>
+</div>
+<script>
+
+function startClick(line){
+  var p1 = $('#start'+line).parents('.data_row');
+  var p2 = $(p1).find("#state_box");
+  console.log(p2);
+  $(p2).val('着手');
+
+  $('#start'+line).hide();
+}
+
+function completeClick(line){
+  var p1 = $('#start'+line).parents('.data_row');
+  var p2 = $(p1).find("#state_box");
+  console.log(p2);
+  $(p2).val('完了');
+  $('#start'+line).hide();
+  $('#complete'+line).hide();
+}
+
+function deleteClick(line){
+  //console.log($(this).parents('.tr'));
+  $($('#delete'+line).parents('.data_row')).hide();
+}
+
+
+
+
+</script>
 </body>
 </html>
