@@ -7,7 +7,6 @@ public class Tasks {
   private String userid;
 public Tasks(Integer taskid, String taskname, String tasklimit,
 		Integer stateflag, String userid) {
-	super();
 	this.taskid = taskid;
 	this.taskname = taskname;
 	this.tasklimit = tasklimit;
@@ -16,7 +15,6 @@ public Tasks(Integer taskid, String taskname, String tasklimit,
 }
 //引数がないコンストラクタ
 public Tasks() {
-	super();
 	this.taskid = null;
 	this.taskname = "";
 	this.tasklimit = "";
