@@ -1,6 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,9 +34,62 @@ public class ExtraServlet extends HttpServlet {
 			return;
 		}
 
+
+		Connection conn = null;
+
+	try {
+
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
+
+		// SQL文を準備する
+		String sql = "SELECT Audio_Path FROM Audio WHERE Audio_Id=1";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		rs.next();
+		//int audioid = rs.getInt("Audio_Id");
+		String audiopath = rs.getString("Audio_Path");
+
+		//String[] Audio = {Integer.toString(audioid), audiopath};
+
+		request.setAttribute("path", audiopath);
+
+	}
+
+
+		catch (SQLException e) {
+			e.printStackTrace();
+			//cardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			//cardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					//cardList = null;
+				}
+			}
+		}
+		// 結果を返す
+
 		// エクストラモードにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/extra.jsp");
 		dispatcher.forward(request, response);
 	}
+
+
 
 }

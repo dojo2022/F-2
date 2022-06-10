@@ -39,7 +39,7 @@
       <ul>
         <li class="extrali">【エクストラモード】</li>
         <div class="newline">
-          <li class="extrali"><button type="button">音声1</button></li>
+          <li class="extrali"><button type="button" id="btn1">音声1</button></li>
           <li class="extrali"><button type="button">音声2</button></li>
           <li class="extrali"><button type="button">音声3</button></li>
           <li class="extrali"><button type="button">音声4</button></li>
@@ -58,6 +58,7 @@
       </ul>
     </div>
     <!-- エクストラ画面おわり -->
+    <span>${path}</span>
   </div>
   </main>
   <!-- メインおわり -->
@@ -86,6 +87,16 @@
 
   recalc();
   /* 時計おわり */
+
+  /*音声再生用 ボタンにonclick1~11追加*/
+   window.onload = function() {
+        let my_audio = new Audio("ファイル名");
+            //ボタンにクリックイベントを設定
+            document.getElementById("btn1").onclick = function() {
+                my_audio.currentTime = 0;  //再生開始位置を先頭に戻す
+                my_audio.play();  //サウンドを再生
+            }
+    }
 </script>
 
 </body>
