@@ -26,7 +26,8 @@
           <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
         </ul>
       </div>
-    <!-- 追加画面始まり -->
+    <!-- タスク確認始まり -->
+
 <div id="table">
   <table id="list">
     <tr class="columnitem">
