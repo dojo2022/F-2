@@ -14,7 +14,9 @@ CREATE TABLE User (
 );
 
 【IDPWテーブルにサンプルデータを登録するSQL文】
-INSERT INTO User (User_Id, User_Password) VALUES ('DOJO', 'password');
+INSERT INTO User (User_Id, User_Password) VALUES 
+('DOJO1', 'password1'),
+('DOJO2', 'password2');
 
 
 【Taskテーブルを作成するSQL文】
@@ -23,11 +25,18 @@ CREATE TABLE Task(
 	Task_Name VARCHAR(30),
 	Task_Limit DATE,
 	State_Flag INT NOT NULL,
-	User_Id INT NOT NULL
+	User_Id VARCHAR(20) NOT NULL,
+	FOREIGN KEY(User_Id) REFERENCES USER(User_Id)
 );
 
-INSERT INTO Task (Tak_Id, Task_Name, Task_Limit, State_Flag, User_Id) VALUES
-
+TASKテーブルにテストデータを追加
+INSERT INTO Task (Task_Name, Task_Limit, State_Flag, User_Id) 
+ VALUES  
+('タスク1',sysdate,0,'DOJO1'),
+('タスク2',sysdate,0,'DOJO1'),
+('タスク3',sysdate,0,'DOJO1'),
+('タスク4',sysdate,0,'DOJO1')
+('タスク5',sysdate,0,'DOJO2');
 
 【Audioテーブルを作成するSQL文】
 CREATE TABLE Audio(
