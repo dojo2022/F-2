@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Tasks;
+import model.User;
 
 /**
  * Servlet implementation class TaskListServlet
@@ -42,6 +43,8 @@ public class TaskListServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+
+
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("id") == null) {
@@ -49,10 +52,13 @@ public class TaskListServlet extends HttpServlet {
 			return;
 		}
 
-		int LoginUser =  (int)session.getAttribute("id");
-		System.out.println(LoginUser);
 
+		//((User)session.getAttribute("id")).getId();
+		//String LoginUser = ((User)session.getAttribute("id")).getId();
 
+		User user = (User)session.getAttribute("id");
+		String loginId = user.getId();
+		System.out.println(loginId);
 
 		 Connection conn = null;
 		 List<Tasks> taskList = new ArrayList<Tasks>();
@@ -65,8 +71,11 @@ public class TaskListServlet extends HttpServlet {
 				conn = (Connection) DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
 
 				// SQL文を準備する<ここを改造>
-				String sql = "select * from Task WHERE USER_ID = LoginUser";
+				String sql = "select * from Task WHERE USER_ID = ?";
+				//String sql = "select * from Task ";
+
 				PreparedStatement pStmt = ((java.sql.Connection) conn).prepareStatement(sql);
+				pStmt.setString(1, loginId);
 
 
 				// SQL文を実行し、結果表を取得する

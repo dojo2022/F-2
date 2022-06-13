@@ -17,6 +17,8 @@ public class User implements Serializable {
 		return id;
 	}
 
+
+
 	public void setUserId(String id) {
 		this.id = id;
 	}

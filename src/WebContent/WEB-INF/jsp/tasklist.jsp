@@ -63,7 +63,7 @@ function startClick(line){
 }
 
 function completeClick(line){
-  var p1 = $('#start'+line).parents('.data_row');
+  var p1 = $('#complete'+line).parents('.data_row');
   var p2 = $(p1).find("#state_box");
   console.log(p2);
   $(p2).val('完了');
