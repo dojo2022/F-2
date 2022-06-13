@@ -26,23 +26,26 @@
           <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
         </ul>
       </div>
-    <!-- 追加画面始まり -->
+    <!-- タスク確認始まり -->
+
 <div id="table">
   <table id="list">
     <tr class="columnitem">
       <div ><th>タスク名</th><th>期限</th><th>状態</th><th>状態操作</th></div>
     </tr>
 <c:forEach var="e" items="${taskList}" >
-		<c:if test="${e.state} == '未着手' }" >
-		<tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td> <input type="submit" id="start${e.id}" name="submit" value="着手" onclick="startClick(${e.id});"><input type="submit" id="complete${e.id}" name="submit" value="完了" onclick="completeClick(${e.id});"><input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
+
+
+		<c:if test="${e.stateflag == 0 }" >
+		<tr class="data_row"><td>${e.taskname}</td><td>${e.tasklimit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="未着手" readonly style="lightgray"></td><td> <input type="submit" id="start${e.taskid}" name="submit" value="着手" onclick="startClick(${e.taskid});"><input type="submit" id="complete${e.taskid}" name="submit" value="完了" onclick="completeClick(${e.taskid});"><input type="submit" id="delete${e.taskid}" name="submit" value="削除" onclick="deleteClick(${e.taskid});" ></td></tr>
     </c:if>
 
-    <c:if test="${e.state} == '着手' }" >
-    <tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td><input type="submit" id="complete${e.id}" name="submit" value="完了" onclick="completeClick(${e.id});"><input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
+    <c:if test="${e.stateflag == 1 }" >
+    <tr class="data_row"><td>${e.taskname}</td><td>${e.tasklimit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="着手" readonly style="lightgray"></td><td> <input type="submit" id="complete${e.taskid}" name="submit" value="完了" onclick="completeClick(${e.taskid});"><input type="submit" id="delete${e.taskid}" name="submit" value="削除" onclick="deleteClick(${e.taskid});" ></td></tr>
     </c:if>
 
-    <c:if test="${e.state} == '完了' }" >
-    <tr class="data_row"><td>${e.name}</td><td>${e.Limit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="${e.state}" readonly style="lightgray"></td><td> <input type="submit" id="delete${e.id}" name="submit" value="削除" onclick="deleteClick(${e.id});" ></td></tr>
+    <c:if test="${e.stateflag == 2 }" >
+    <tr class="data_row"><td>${e.taskname}</td><td>${e.tasklimit}</td><td id="state"> <input type="text" id="state_box" name="statebox" value="完了" readonly style="lightgray"></td><td> <input type="submit" id="delete${e.taskid}" name="submit" value="削除" onclick="deleteClick(${e.taskid});" ></td></tr>
     </c:if>
 </c:forEach>
   </table>
