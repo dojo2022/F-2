@@ -1,0 +1,46 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/database/imoketu
+
+【ユーザー名】	【パスワード】
+sa		（なし）
+
+【Userテーブルを作成するSQL文】
+CREATE TABLE User (
+  User_Id VARCHAR(20) PRIMARY KEY NOT NULL,
+  User_Password VARCHAR(200) NOT NULL
+);
+
+【IDPWテーブルにサンプルデータを登録するSQL文】
+INSERT INTO User (User_Id, User_Password) VALUES 
+('DOJO1', 'password1'),
+('DOJO2', 'password2');
+
+
+【Taskテーブルを作成するSQL文】
+CREATE TABLE Task(
+	Task_Id INT PRIMARY KEY auto_increment NOT NULL,
+	Task_Name VARCHAR(30),
+	Task_Limit DATETIME,
+	State_Flag INT NOT NULL,
+	User_Id VARCHAR(20) NOT NULL,
+	FOREIGN KEY(User_Id) REFERENCES USER(User_Id)
+);
+
+TASKテーブルにテストデータを追加
+INSERT INTO Task (Task_Name, Task_Limit, State_Flag, User_Id) 
+ VALUES  
+('タスク1',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),0,'DOJO1'),
+('タスク2',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),0,'DOJO1'),
+('タスク3',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),1,'DOJO1'),
+('タスク4',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),2,'DOJO1'),
+('タスク5',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),0,'DOJO2'),
+('タスク6',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),2,'DOJO2'),
+('タスク7',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),2,'DOJO2');
+
+
+
+
+parsedatetime('2022-06-10 12:33:52.590', 'yyyy-MM-dd hh:mm:ss.SS')
