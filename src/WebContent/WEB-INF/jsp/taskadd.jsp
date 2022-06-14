@@ -28,9 +28,9 @@
 <!-- フォーム -->
 <form action="/imoketu/TaskAddServlet" class="add_form" id="add_form" method="POST">
 	<h1>タイトル</h1>
-		<input type="text" placeholder="タスクタイトルを入力して下さい"class="title-name" name="titleName">
+		<input type="text" placeholder="タスクタイトルを入力して下さい"class="title-name" name="taskname">
 	<h1>期限</h1>
-		<input type="datetime-local" class="datetime" name="datetime">
+		<input type="datetime-local" class="datetime" name="tasklimit">
 	<div></div>
 		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
 </form>
