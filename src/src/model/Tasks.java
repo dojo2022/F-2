@@ -1,11 +1,22 @@
 package model;
+
 public class Tasks {
   private Integer taskid;
   private String taskname;
   private String tasklimit;
   private Integer stateflag;
   private String userid;
-public Tasks(Integer taskid, String taskname, String tasklimit,
+
+//引数があるコンストラクタ
+  public Tasks(String taskname, String tasklimit,
+		Integer stateflag, String userid) {
+	this.taskname = taskname;
+	this.tasklimit = tasklimit;
+	this.stateflag = stateflag;
+	this.userid = userid;
+}
+//引数があるコンストラクタ
+  public Tasks(Integer taskid, String taskname, String tasklimit,
 		Integer stateflag, String userid) {
 	this.taskid = taskid;
 	this.taskname = taskname;
@@ -17,7 +28,7 @@ public Tasks(Integer taskid, String taskname, String tasklimit,
 public Tasks() {
 	this.taskid = null;
 	this.taskname = "";
-	this.tasklimit = "";
+	this.tasklimit = null;
 	this.stateflag = null;
 	this.userid = null;
 }
