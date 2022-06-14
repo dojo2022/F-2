@@ -7,6 +7,7 @@ public class Tasks {
   private Integer stateflag;
   private String userid;
 
+//引数があるコンストラクタ
   public Tasks(String taskname, String tasklimit,
 		Integer stateflag, String userid) {
 	this.taskname = taskname;
@@ -14,8 +15,18 @@ public class Tasks {
 	this.stateflag = stateflag;
 	this.userid = userid;
 }
+//引数があるコンストラクタ
+  public Tasks(Integer taskid, String taskname, String tasklimit,
+		Integer stateflag, String userid) {
+	this.taskid = taskid;
+	this.taskname = taskname;
+	this.tasklimit = tasklimit;
+	this.stateflag = stateflag;
+	this.userid = userid;
+}
 //引数がないコンストラクタ
 public Tasks() {
+	this.taskid = null;
 	this.taskname = "";
 	this.tasklimit = null;
 	this.stateflag = null;
