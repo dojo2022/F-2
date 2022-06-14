@@ -59,7 +59,6 @@ function startClick(line){  //着手ボタンクリック時
   var p2 = $(p1).find("#state_box");
   console.log(p2);
   $(p2).val('着手');
-
   $('#start'+line).hide();
 
   //状態変更の非同期通信部
@@ -83,6 +82,7 @@ function deleteClick(line){ //削除ボタンクリック時
   $($('#delete'+line).parents('.data_row')).hide();
 
   //状態変更の非同期通信部
+
 
 }
 
