@@ -63,6 +63,7 @@ function startClick(line){  //着手ボタンクリック時
 
   //状態変更の非同期通信部
 
+
 }
 
 function completeClick(line){ //完了ボタンクリック時
@@ -74,7 +75,31 @@ function completeClick(line){ //完了ボタンクリック時
   $('#complete'+line).hide();
 
 	//状態変更の非同期通信部
-
+  /* $.ajax({
+	  type: 'POST',
+	  async: true,
+	  dataType: 'json',
+	  timeout: 10000,
+	  data: {
+		  'id': complete${e.taskid}.val()
+		  //name: p2
+	  }
+  	  .done(function(data){
+  		 //通信が成功した時の処理
+  		 $('#start'+line).hide();
+  		 console.log("成功");
+  	  })
+  	  .fail(function(){
+  		  //通信が失敗した時の処理
+  		  console.log("失敗");
+  		  return;
+  	  })
+  	  .always(function(){
+  		  $(p2).val('完了');
+  		  //通信が完了した時の処理
+  		  console.log("完了");
+  	  })
+  }) */
 }
 
 function deleteClick(line){ //削除ボタンクリック時
