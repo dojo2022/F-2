@@ -53,9 +53,6 @@ public class TaskListServlet extends HttpServlet {
 		}
 
 
-		//((User)session.getAttribute("id")).getId();
-		//String LoginUser = ((User)session.getAttribute("id")).getId();
-
 		User user = (User)session.getAttribute("id");
 		String loginId = user.getId();
 		System.out.println(loginId);
