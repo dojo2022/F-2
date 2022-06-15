@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new User(id));
+			session.setAttribute("id", new User(id).getId());
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/imoketu/TaskListServlet");

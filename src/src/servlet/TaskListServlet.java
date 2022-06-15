@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Tasks;
-import model.User;
 
 /**
  * Servlet implementation class TaskListServlet
@@ -53,8 +52,8 @@ public class TaskListServlet extends HttpServlet {
 		}
 
 
-		User user = (User)session.getAttribute("id");
-		String loginId = user.getId();
+		//User user = (User)session.getAttribute("id");
+		String loginId = (String) request.getSession().getAttribute("id");
 		System.out.println(loginId);
 
 		 Connection conn = null;

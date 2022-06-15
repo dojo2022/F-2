@@ -48,14 +48,12 @@ public class TaskAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-
-
 		request.setCharacterEncoding("UTF-8");
 		String taskName = request.getParameter("taskname");
 		String taskLimit = request.getParameter("tasklimit");
 
 		Connection conn = null;
-		Tasks task = new Tasks(taskName, taskLimit, 0, (String) request.getSession().getAttribute("id"));
+		Tasks task = new Tasks(taskName, taskLimit, 0,(String) request.getSession().getAttribute("id"));
 
 		try {
 
@@ -107,10 +105,10 @@ public class TaskAddServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			//登録したらタスク追加場面に戻る
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskadd.jsp");
-			dispatcher.forward(request, response);
 		}
+		//登録したらタスク追加場面に戻る
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskadd.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
