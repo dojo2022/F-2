@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+.listdiv {
+	width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.list_header {
+
+  height: 24px;
+  padding: 5px;
+  text-align: left;
+  border-style: solid;
+}
+
 div#table {
   width: 750px;
   height: 350px;
@@ -16,33 +30,4 @@ table#list th, table#list td {
   text-align: left;
   white-space: nowrap;		/* 折り返さない */
   font-weight:1000;
-}
-
-
-ul {
-	width: 300px;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	background-color: #eeeeee;
-}
-li a {
-	display: block;
-	padding: 8px 16px;
-	text-decoration: none;
-	color: #000000;
-}
-li {
-	text-align: center;
-}
-li:last-child {
-	border-bottom: none;
-}
-li a.active {
-	color: #ffffff;
-	background-color: #da3c41;
-}
-li a:hover:not(.active) {
-	color: #ffffff;
-	background-color: #1b2538;
 }
