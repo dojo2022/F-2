@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 
 /**
@@ -29,58 +29,79 @@ public class TimeJudgeServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session = request.getSession();
-		Connection conn = null;
+		//HttpSession session = request.getSession();
 
-	try {
+		//Map<String,String> taskmap = new HashMap<>();
+		//ArrayList<Integer> hoge = new ArrayList<>();
+/*
+	//定期的に処理を実行させる
+	Timer timer = new Timer(false);
+	TimerTask task = new TimerTask() {
 
-		// JDBCドライバを読み込む
-		Class.forName("org.h2.Driver");
+		@Override
+		public void run() {
+*/
+			Connection conn = null;
 
-		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
+			try {
 
-		// SQL文を準備する
-		String sql = "SELECT Audio_Path FROM Audio WHERE Audio_Id=1";
-		PreparedStatement pStmt = conn.prepareStatement(sql);
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-		// SQL文を実行し、結果表を取得する
-		ResultSet rs = pStmt.executeQuery();
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/database/imoketu", "sa", "");
 
-		rs.next();
-		//int audioid = rs.getInt("Audio_Id");
-		String audiopath = rs.getString("Audio_Path");
+			// SQL文を準備する
+			String sql = "SELECT Task_Id,Task_Limit,State_Flag FROM Task";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		//String[] Audio = {Integer.toString(audioid), audiopath};
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
 
-		request.setAttribute("path", audiopath);
+			//結果表をコレクションにコピーする
 
-	}
+			while(rs.next()) {
+
+				Integer x = rs.getInt("Task_Id");
+				String taskid = x.toString();
+				String tasklimit = (rs.getTimestamp("Task_Limit")).toString();
+				Integer y = rs.getInt("State_Flag");
+				String stateflag = y.toString();
+
+			};
 
 
-		catch (SQLException e) {
-			e.printStackTrace();
-			//cardList = null;
+
 		}
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			//cardList = null;
-		}
-		finally {
-			// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-					//cardList = null;
+
+
+			catch (SQLException e) {
+				e.printStackTrace();
+				//cardList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				//cardList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						//cardList = null;
+					}
 				}
 			}
-		}
-		// 結果を返す
+			// 結果を返す
+			//request.setAttribute("path", audiopath);
 
-
+/*		}
+	};
+	timer.schedule(task, 0, 1000);
+*/
 	}
 
 
