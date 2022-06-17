@@ -27,61 +27,43 @@
      </div>
 <div class="title">
 <!-- フォーム -->
-<form class="add_form" id="add_form">
 	<h1>タイトル</h1>
 		<input type="text" id=taskname placeholder="タスクタイトルを入力して下さい"class="title-name" name="taskname">
 	<h1>期限</h1>
 		<input type="datetime-local" id=datetime class="datetime" name="tasklimit">
 	<div></div>
 		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
-</form>
 <!-- フォーム終わり -->
 </div>
 </div>
 <!-- 追加画面終わり -->
 </div>
 <script>
+//タスク追加ボタンを押下時、音声再生
 $(function(){
 	  $('#register').click(function(){
-	  //event.preventDefault();
-	  var $form = $(this);
-	  var $button = $form.find('#register');
-	  var data = $('#add_form').serializeArray();  // ①form to json
-	  console.log(data);
-	  //event.preventDefault();
+	  //inputの中身を取得
+	  const taskname = document.getElementById("taskname").value;
+	  const tasklimit = document.getElementById("datetime").value;
 
 	  //非同期処理
 	  $.ajax({
 		  type: 'POST',
 		  url: "/imoketu/TaskAddServlet",
-		  data: JSON.stringify(data),
+		  data: "taskname="+taskname+"&tasklimit="+tasklimit,
 		  timeout: 10000,
-		  dataType: 'json',
-		  // 送信前
-		  beforeSend: function(xhr, settings) {
-              // ボタンを無効化し、二重送信を防止
-              $button.attr('disabled', true);
-              const music = new Audio("/imoketu/audio/001_タスク追加時.wav");
-			  music.play();
-          },
-          // 応答後
-          complete: function(xhr, textStatus) {
-              // ボタンを有効化し、再送信を許可
-              $button.attr('disabled', false);
-          },
-		  })
+		  dataType: 'text',
+	  	  })
 		  .done(function(data){
-			  console.log("aaa");
-
-		  })
-	  	  .fail(function(data){
-	  		 console.log("bbb");
-	  	  });
-	  });
+			  const music = new Audio("/imoketu/audio/001_タスク追加時.wav");
+			  music.play();
+			 //音声再生終了(3秒後)後ページをリロード
+			  setTimeout(function(){
+				  window.location.reload();
+				      },3000);
+		  });
 	});
-
-
-
+});
 </script>
 </body>
 </html>
