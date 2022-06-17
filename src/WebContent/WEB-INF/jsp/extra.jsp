@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>エクストラモード</title>
 <link rel="stylesheet" href="/imoketu/css/common.css">
+<link rel="stylesheet" href="/imoketu/css/modal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 </head>
 <body>
   <!-- メイン -->
@@ -69,6 +69,30 @@
   </main>
   <!-- メインおわり -->
 
+  <!-- モーダルウィンドウはじまり -->
+  <div id="modal-overlay">
+    <div class="modal-mask"></div>
+      <div class="modal-container">
+        <div class="modal-inner">
+          <div class="modal-title">期限が迫っているタスクを表示</div>
+          <div class="modal-text">
+          <!-- ここにタスク期限テーブルからタスク情報を引っ張ってくる -->
+          	<p>
+			ボタンをクリックすると非同期通信でサーブレットからDBデータを取得します。
+			</p>
+			<button id="getbox" type="button">データの取得</button>
+			<button id="delbox">データ消去ボタン</button>
+			<div id="result"></div>
+
+          </div>
+          <button class="close">×</button>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/imoketu/js/common.js"></script> <!-- ご自身のパスに変更 -->
+  <!-- モーダルウィンドウおわり -->
+
 <script>
   /* 時計 */
   function recalc() {
@@ -94,20 +118,7 @@
   recalc();
   /* 時計おわり */
 
-
-  /*音声再生用 ボタンにonclick1~11追加*/
-/*   window.onload = function() {
-	  for(){
-        let my_audio = new Audio("${PathList}");
-            //ボタンにクリックイベントを設定
-            document.getElementById("btn").onclick = function() {
-                my_audio.currentTime = 0;  //再生開始位置を先頭に戻す
-                my_audio.play();  //サウンドを再生
-            }
-	  }
-    }
-*/
-
+  /* 音声再生 */
 $(function(){
     $('.button').click(function(){
     	//全ての音声ボタンを無効化。でも既に押されたボタン情報は消されることはない。
@@ -133,45 +144,34 @@ $(function(){
 		});
     });
 });
+/* 音声再生おわり */
 
-/*
-$(function(){
-    $('.button').click(function(){
-		//$(this)はクリックしたオブジェクト（すなわちボタンを指す）
-        console.log($(this).text());//ボタンの値
-        console.log($(this).attr('id'));//ボタンの属性値を取得
-        console.log($(this).attr('name'));//ボタンの属性値を取得
-        const audio = new Audio($(this).attr('name'));	//パスを読み込んでmp3ファイルを準備する
-        var playAudio = audio.play();
-
-        if (playAudio !== undefined) {
-        	playAudio.then(_ => {
-              // Automatic playback started!
-              // Show playing UI.
-              // We can now safely pause audio...
-              audio.pause();
-            })
-            .catch(error => {
-              // Auto-play was prevented
-              // Show paused UI.
-            });
-        };
-    });
-});
-*/
-/*
-$(function(){
-    $('.button').click(function(){
-		//$(this)はクリックしたオブジェクト（すなわちボタンを指す）
-        console.log($(this).text());//ボタンの値
-        console.log($(this).attr('id'));//ボタンの属性値を取得
-        console.log($(this).attr('name'));//ボタンの属性値を取得
-        const music = new Audio($(this).attr('name'));	//パスを読み込んでmp3ファイルを準備する
-        music.currentTime = 0;//サウンドを停止
-        music.play();  //サウンドを再生
-    });
-});
-*/
+/* モーダルの中身 */
+/* const getData = () =>{
+	  let request = new XMLHttpRequest();
+	  request.onreadystatechange = function(e){
+	    if (request.readyState == 4){
+	      if (request.status == 200){
+	        let node = document.getElementById("result");
+	        node.innerHTML = request.responseText;
+	      }else{
+	        console.error(request.statusText);
+	      }
+	    }
+	  }
+	  request.open('GET', 'http://localhost:8080/example/UpdateDbApi?role=1', true);
+	  request.send();
+	  let del = document.getElementById("delbox");
+	  del.style.display = 'block';
+	}
+	getbox.addEventListener('click', getData, false)
+	const del = (e) =>{
+		  let output = document.getElementById("result");
+		  output.innerHTML = "";
+		  e.target.style.display = 'none';
+	}
+	delbox.addEventListener('click', del, false);*/
+/* モーダルの中身おわり */
 </script>
 
 </body>
