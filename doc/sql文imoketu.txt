@@ -44,7 +44,7 @@ CREATE TABLE Audio(
 	Audio_Path VARCHAR(200) NOT NULL
 );
 
-【Audioデータを登録するSQL文】
+【Audioデータを登録するSQL文】//サンプル音声ver
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('1', '/imoketu/audio/sample1.mp3');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('2', '/imoketu/audio/sample2.mp3');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('3', '/imoketu/audio/sample3.mp3');
@@ -56,6 +56,22 @@ INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('8', '/imoketu/audio/sample8.mp
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('9', '/imoketu/audio/sample9.mp3');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('10', '/imoketu/audio/sample10.mp3');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('11', '/imoketu/audio/sample11.mp3');
+
+
+【Audioデータを登録するSQL文】//本番音声ver
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('1', '/imoketu/audio/001_タスク追加時.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('2', '/imoketu/audio/002_未着手二日前.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('3', '/imoketu/audio/003_未着手一日ver2.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('4', '/imoketu/audio/004_未着手・未完了当日ver2.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('5', '/imoketu/audio/005_未完了・未着手3時間前.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('6', '/imoketu/audio/006_未着手・未着手　1時間前.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('7', '/imoketu/audio/007_着手前日以前.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('8', '/imoketu/audio/008_着手当日.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('9', '/imoketu/audio/009_着手2時間前.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('10', '/imoketu/audio/010_完了時期限以内ver2.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('11', '/imoketu/audio/011_完了期限超過ver2.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('12', '/imoketu/audio/012_タスク期限超過.wav');
+
 
 ※テーブルを削除
 DROP TABLE テーブル名;
