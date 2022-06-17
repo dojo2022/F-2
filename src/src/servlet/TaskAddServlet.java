@@ -106,9 +106,9 @@ public class TaskAddServlet extends HttpServlet {
 				}
 			}
 		}
-		//登録したらタスク追加場面に戻る
+		/*登録したらタスク追加場面に戻る
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskadd.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);*/
 
 	}
 
