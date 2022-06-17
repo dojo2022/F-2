@@ -81,6 +81,7 @@ li.menu_content_image{
 }
 
 .extrali{
+
   margin: 0px;
   border-style: solid;
   list-style: none;
@@ -89,3 +90,6 @@ li.menu_content_image{
 .newline{
   float: left;
 }
+
+/* Extra.cssおわり */
+
