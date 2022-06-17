@@ -37,6 +37,18 @@ public class Test {
 		Timestamp LastPlayTime4 = new Timestamp(System.currentTimeMillis());
 		*/
 
+
+		//可変長型配列を作成
+        //ArrayList<String> alert = new ArrayList<>();
+        String[][] alert = {
+        		{"/imoketu/audio/006_未着手・未着手1時間前.wav","バカ兄貴ーはやしくしろー！！"},
+        		{"/imoketu/audio/005_未完了・未着手3時間前.wav","3時間前よ、はやくしなさいって！"},
+        		{"/imoketu/audio/004_未着手・未完了当日ver2.wav","今日締め切りのタスクがあるわよ、わかってるんでしょうね"},
+        		{"/imoketu/audio/003_未着手一日前ver2.wav","明日締め切りのタスクがあるわよ、大丈夫なの？"},
+        		{"/imoketu/audio/002_未着手二日前.wav","明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ"}
+        };
+
+
 		try {
 
 
@@ -60,6 +72,9 @@ public class Test {
 
 
 		while(rs.next()) {
+
+
+
 
 			//タスクID・制限時刻・状態フラッグを各変数に代入
 			Integer x = rs.getInt("Task_Id");
@@ -134,9 +149,11 @@ public class Test {
 			if((currenttimestamp.compareTo(tasklimit))!=1 ) { //現在時刻がタスク期限を過ぎていないかどうか
 
 				if(oneHourBeforeFlag==1  && (currenttimestamp.compareTo(NextPlayTime1))==1 ) { //1時間以内かつ3時間以内の再生が無いかどうか
+
 					System.out.println("1時間前");
 
-
+					System.out.println("音声データ取得：" + alert[0][0]);
+					System.out.println("アラート文字取得:" + alert[0][1]);
 
 
 					//3時間後のタイムスタンプを格納
@@ -149,6 +166,8 @@ public class Test {
 				}else if(threeHourBeforeFlag==1  && (currenttimestamp.compareTo(NextPlayTime2))==1 ) {  //3時間以内かつ3時間以内の再生が無いかどうか
 
 					System.out.println("3時間前");
+					System.out.println("音声データ取得：" + alert[1][0]);
+					System.out.println("アラート文字取得:" + alert[1][1]);
 
 
 					//3時間後のタイムスタンプを格納
@@ -160,6 +179,8 @@ public class Test {
 				}else if(oneDayBeforeFlag==1 && (currenttimestamp.compareTo(NextPlayTime3))==1 ) { //1日以内かつであり、3時間以内の再生が無いかどうか
 
 					System.out.println("1日前");
+					System.out.println("音声データ取得：" + alert[2][0]);
+					System.out.println("アラート文字取得:" + alert[2][1]);
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP3 = Calendar.getInstance();
@@ -171,6 +192,8 @@ public class Test {
 
 
 					System.out.println("2日前");
+					System.out.println("音声データ取得：" + alert[3][0]);
+					System.out.println("アラート文字取得:" + alert[3][1]);
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP4 = Calendar.getInstance();
