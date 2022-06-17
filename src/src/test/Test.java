@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 public class Test {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args)  {
 		// TODO 自動生成されたメソッド・スタブ
 
 		Connection conn = null;
