@@ -54,8 +54,8 @@
 							<td id="state"><input type="text" id="state_box${e.taskid}"
 								name="statebox" value="未着手" readonly style="lightglay"></td>
 							<td><input type="submit" class="btn1"id="begin${e.taskid}" name="${e.taskid}"
-								value="着手"><input type="submit" class="btn2"id="complete${e.taskid}"
-								name="${e.taskid}" value="完了"><input type="submit" class="btn3"
+								value="着手" classs="${e.tasklimit}"><input type="submit" class="btn2"id="complete${e.taskid}"
+								name="${e.taskid}" value="完了" classs="${e.tasklimit}"><input type="submit" class="btn3"
 								id="delete${e.taskid}" name="${e.taskid}" value="削除"></td>
 						</tr>
 					</c:if>
@@ -67,7 +67,7 @@
 							<td id="state"><input type="text" id="state_box${e.taskid}"
 								name="statebox" value="着手" readonly style="lightglay"></td>
 							<td><input type="submit" class="btn2" id="complete${e.taskid}"
-								name="${e.taskid}" value="完了"><input type="submit" class="btn3"
+								name="${e.taskid}" value="完了" classs="${e.tasklimit}"><input type="submit" class="btn3"
 								id="delete${e.taskid}" name="${e.taskid}" value="削除"></td>
 						</tr>
 					</c:if>
@@ -99,6 +99,10 @@ $(function(){
   const check = $(this).val();
   let tasksw;
 
+  var nowDate = new Date(); //現在時刻
+  var kigen = new Date($(this).attr('classs'));//押したボタンのある行の期限
+  var keisan = (kigen.getTime() - nowDate.getTime()) / (60*60*1000);//押したボタンのところの、期限-現在時間を時間単位で出してる
+
   //ボタンをクリックしたら、値がセットされる様にしている
   if(check === $('.btn2').val()) {
 	  tasksw = 1;
@@ -109,6 +113,7 @@ $(function(){
     else if(check === $('.btn3').val()){
 	  tasksw = 3;
     }
+
 
   //非同期処理
   $.ajax({
@@ -121,22 +126,54 @@ $(function(){
 	  .done(function(data){
 		//完了ボタン押下時
 	    if(check === $('.btn2').val()) {
-		  $("#begin"+num).css('display','none');
-		  $("#complete"+num).css('display', 'none');
-		  $("#state_box"+num).val('完了');
+			  //期限以内の時
+			  if(kigen > nowDate){
+				  $("#begin"+num).css('display','none');
+				  $("#complete"+num).css('display', 'none');
+				  $("#state_box"+num).val('完了');
+				  const music = new Audio("/imoketu/audio/010_完了時期限以内ver2.wav");
+				  music.play();
+			  }
+			  //期限超過時
+			  else if(nowDate > kigen){
+				  $("#begin"+num).css('display','none');
+				  $("#complete"+num).css('display', 'none');
+				  $("#state_box"+num).val('完了');
+				  const music = new Audio("/imoketu/audio/011_完了期限超過ver2.wav");
+				  music.play();
+			  }
 	    }
 		//着手ボタン押下時
 	    else if(check === $('.btn1').val()){
-	      $("#begin"+num).css('display','none');
-		  $("#state_box"+num).val('着手');
-	    	console.log("着手");
+		      //前日以前
+		      if(keisan > 24){
+		    	  $("#begin"+num).css('display','none');
+				  $("#state_box"+num).val('着手');
+				  const music = new Audio("/imoketu/audio/007_着手前日以前.wav");
+				  music.play();
+		      }
+		      //当日
+		      else if(24 >= keisan && keisan > 2){
+		    	  $("#begin"+num).css('display','none');
+				  $("#state_box"+num).val('着手');
+				  const music = new Audio("/imoketu/audio/008_着手当日.wav");
+				  music.play();
+		      }
+		      //締め切り2時間前
+		      else if(keisan < 2){
+		    	  $("#begin"+num).css('display','none');
+				  $("#state_box"+num).val('着手');
+				  const music = new Audio("/imoketu/audio/009_着手2時間前.wav");
+				  music.play();
+		      }
 	    }
-		//削除ボタン押下時
+		  //削除ボタン押下時
 	    else if(check === $('.btn3').val()){
-		  $("#data_row"+num).css('visibility','collapse');
-	       console.log("削除");
+	    	$("#data_row"+num).css('visibility','collapse');
 	    }
+
 	  });
+
   });
 });
 </script>
