@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -88,7 +89,6 @@ public class TimeJudgeServlet extends HttpServlet{
 		Date Npt4=NextPlayTime4;
 
 
-
 		Connection conn = null;
 
         /*
@@ -101,13 +101,13 @@ public class TimeJudgeServlet extends HttpServlet{
 
 		//可変長型配列を作成
         //ArrayList<String> alert = new ArrayList<>();
-        String[][] alert = {
-        		{"/imoketu/audio/006_未着手・未着手1時間前.wav","バカ兄貴ーはやしくしろー！！"},
-        		{"/imoketu/audio/005_未完了・未着手3時間前.wav","3時間前よ、はやくしなさいって！"},
-        		{"/imoketu/audio/004_未着手・未完了当日ver2.wav","今日締め切りのタスクがあるわよ、わかってるんでしょうね"},
-        		{"/imoketu/audio/003_未着手一日前ver2.wav","明日締め切りのタスクがあるわよ、大丈夫なの？"},
-        		{"/imoketu/audio/002_未着手二日前.wav","明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ"}
-        };
+//        String[][] alert = {
+//        		{"/imoketu/audio/006_未着手・未着手1時間前.wav","バカ兄貴ーはやしくしろー！！"},
+//        		{"/imoketu/audio/005_未完了・未着手3時間前.wav","3時間前よ、はやくしなさいって！"},
+//        		{"/imoketu/audio/004_未着手・未完了当日ver2.wav","今日締め切りのタスクがあるわよ、わかってるんでしょうね"},
+//        		{"/imoketu/audio/003_未着手一日前ver2.wav","明日締め切りのタスクがあるわよ、大丈夫なの？"},
+//        		{"/imoketu/audio/002_未着手二日前.wav","明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ"}
+//        };
 
 
 		try {
@@ -210,8 +210,91 @@ public class TimeJudgeServlet extends HttpServlet{
 
 					System.out.println("1時間前");
 
-					System.out.println("音声データ取得：" + alert[0][0]);
-					System.out.println("アラート文字取得:" + alert[0][1]);
+//					System.out.println("音声データ取得：" + alert[0][0]);
+//					System.out.println("アラート文字取得:" + alert[0][1]);
+
+
+					int role = Integer.parseInt(request.getParameter("role"));
+					//Map<Integer,String> data = new HashMap<>();
+
+					String audioPath = null;
+
+					try {
+
+						// データベースとの接続の確立
+						Class.forName("org.h2.Driver");
+						String url = "jdbc:h2:file:C:/database/imoketu";
+						Connection con = DriverManager.getConnection(url, "sa", "");
+						//SQL文のテンプレート作成
+						String sql2 =
+								"SELECT Audio_Path  " +
+								"FROM AUDIO WHERE Audio_Id = 6";
+						//SQLインジェクション対策
+						PreparedStatement prepStmt = con.prepareStatement(sql);
+						//SQL文"?"の箇所に値を埋める
+						//prepStmt.setInt(1, role);
+						//DBに対しQuery実行。rsに実行結果を蓄積。
+						ResultSet rs2 = prepStmt.executeQuery();
+						//SQLの実行結果の処理
+						rs2.next();
+						audioPath = rs.getString("AUDIO_PATH");
+
+							/*
+								String role_name="";
+								String user = rs.getString("USERNAME");
+								Integer id = rs.getInt("ID");
+								role = rs.getInt("ROLE");
+								if( role == 1) role_name = "管理者";
+								else if( role == 2) role_name = "編集者";
+								else role_name = "寄稿者";
+								String email = rs.getString("EMAIL");
+								String zdata = user + ":" + email + ":" + role_name;
+								data.put(id,zdata);
+								*/
+
+						//DBのクローズ
+
+						rs.close();
+						prepStmt.close();
+						con.close();
+						} catch (ClassNotFoundException e) {
+									e.printStackTrace();
+						} catch (SQLException e) {
+									e.printStackTrace();
+						}
+
+					//ネットストリームに書き込む
+
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<div id=\"modal-overlay\">");
+					out.println("<div class=\"modal-mask\"></div>");
+					out.println("<div class=\"modal-container\">");
+					out.println("<div class=\"modal-inner\">");
+					out.println("<div class=\"modal-title\">バカ兄貴ーはやしくしろー！！</div>");
+					out.println("<div class=\"modal-text\">");
+					out.println("<p>タスクの期限が１時間前です。</p>");
+					out.println("</div>");
+					out.println("<button class=\"close\">×</button>");
+					out.println("</div></div></div>");
+					out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>");
+					out.println("<script src=\"/imoketu/js/common.js\"></script>");
+					out.println("<script>");
+					out.println("const music = new Audio(" + audioPath + ");");
+					out.println("music.play();");
+					out.println("</script>");
+
+
+
+//					response.setContentType("text/html; charset=UTF-8");
+//					PrintWriter out = response.getWriter();
+//					out.println("<div id='result_box'>");
+//					out.println("<h2>検索結果</h2>");
+//
+//					for(Map.Entry<Integer,String> entry:data.entrySet()) {
+//						out.print(entry.getKey()+":"+entry.getValue()+"<br>");
+//					}
+//					out.println("</div>");
 
 
 					//3時間後のタイムスタンプを格納
@@ -224,8 +307,8 @@ public class TimeJudgeServlet extends HttpServlet{
 				}else if(threeHourBeforeFlag==1  && (currenttimestamp.compareTo(Npt2))==1 ) {  //3時間以内かつ3時間以内の再生が無いかどうか
 
 					System.out.println("3時間前");
-					System.out.println("音声データ取得：" + alert[1][0]);
-					System.out.println("アラート文字取得:" + alert[1][1]);
+//					System.out.println("音声データ取得：" + alert[1][0]);
+//					System.out.println("アラート文字取得:" + alert[1][1]);
 
 
 					//3時間後のタイムスタンプを格納
@@ -237,8 +320,8 @@ public class TimeJudgeServlet extends HttpServlet{
 				}else if(oneDayBeforeFlag==1 && (currenttimestamp.compareTo(Npt3))==1 ) { //1日以内かつであり、3時間以内の再生が無いかどうか
 
 					System.out.println("1日前");
-					System.out.println("音声データ取得：" + alert[2][0]);
-					System.out.println("アラート文字取得:" + alert[2][1]);
+//					System.out.println("音声データ取得：" + alert[2][0]);
+//					System.out.println("アラート文字取得:" + alert[2][1]);
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP3 = Calendar.getInstance();
@@ -250,8 +333,8 @@ public class TimeJudgeServlet extends HttpServlet{
 
 
 					System.out.println("2日前");
-					System.out.println("音声データ取得：" + alert[3][0]);
-					System.out.println("アラート文字取得:" + alert[3][1]);
+//					System.out.println("音声データ取得：" + alert[3][0]);
+//					System.out.println("アラート文字取得:" + alert[3][1]);
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP4 = Calendar.getInstance();
