@@ -42,6 +42,7 @@ public class TaskAddServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -109,7 +110,6 @@ public class TaskAddServlet extends HttpServlet {
 		/*登録したらタスク追加場面に戻る
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskadd.jsp");
 		dispatcher.forward(request, response);*/
-
 	}
 
 }
