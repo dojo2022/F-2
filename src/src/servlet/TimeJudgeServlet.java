@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -44,24 +43,37 @@ public class TimeJudgeServlet extends HttpServlet{
 		//ArrayList<Integer> hoge = new ArrayList<>();
 
 		//5種類のセリフ最終再生時間を格納する変数を宣言し古い時刻を代入
-		SimpleDateFormat LastPlaysdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-        String str = "2019/12/12 12:00";
-		Date NextPlayTime1=new Date();
-		Date NextPlayTime2=new Date();
-		Date NextPlayTime3=new Date() ;
-		Date NextPlayTime4=new Date();
+//		SimpleDateFormat LastPlaysdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+//		Calendar cale = Calendar.getInstance();
+//		cale.set(2018, 12, 12, 12, 00, 00);
 
-		try {
+		Date NextPlayTime1=new Date(118, 12, 12, 12, 00, 00);
+		Date NextPlayTime2=new Date(118, 12, 12, 12, 00, 00);
+		Date NextPlayTime3=new Date(118, 12, 12, 12, 00, 00);
+		Date NextPlayTime4=new Date(118, 12, 12, 12, 00, 00);
 
-			NextPlayTime1 = LastPlaysdf.parse(str);
-			NextPlayTime2 = LastPlaysdf.parse(str);
-			NextPlayTime3 = LastPlaysdf.parse(str);
-			NextPlayTime4 = LastPlaysdf.parse(str);
 
-		} catch (ParseException e1) {
-			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
-		}
+		//Calendar型からDate型に変換し、格納
+//		NextPlayTime1 = cale.getTime();
+//		NextPlayTime2 = cale.getTime();
+//		NextPlayTime3 = cale.getTime();
+//		NextPlayTime4 = cale.getTime();
+
+
+
+
+
+//		try {
+//
+//			NextPlayTime1 = LastPlaysdf.parse(str);
+//			NextPlayTime2 = LastPlaysdf.parse(str);
+//			NextPlayTime3 = LastPlaysdf.parse(str);
+//			NextPlayTime4 = LastPlaysdf.parse(str);
+//
+//		} catch (ParseException e1) {
+//			// TODO 自動生成された catch ブロック
+//			e1.printStackTrace();
+//		}
 
 		//定期的に処理を実行させる
 		Timer timer = new Timer(false);
@@ -69,6 +81,13 @@ public class TimeJudgeServlet extends HttpServlet{
 
 		@Override
 		public void run() {
+
+		Date Npt1=NextPlayTime1;
+		Date Npt2=NextPlayTime2;
+		Date Npt3=NextPlayTime3;
+		Date Npt4=NextPlayTime4;
+
+
 
 		Connection conn = null;
 
@@ -187,7 +206,7 @@ public class TimeJudgeServlet extends HttpServlet{
 
 			if((currenttimestamp.compareTo(tasklimit))!=1 ) { //現在時刻がタスク期限を過ぎていないかどうか
 
-				if(oneHourBeforeFlag==1  && (currenttimestamp.compareTo(NextPlayTime1))==1 ) { //1時間以内かつ3時間以内の再生が無いかどうか
+				if(oneHourBeforeFlag==1  && (currenttimestamp.compareTo(Npt1))==1 ) { //1時間以内かつ3時間以内の再生が無いかどうか
 
 					System.out.println("1時間前");
 
@@ -199,10 +218,10 @@ public class TimeJudgeServlet extends HttpServlet{
 					Calendar calLP1 = Calendar.getInstance();
 					calLP1.setTime(dt);
 					calLP1.add(Calendar.HOUR, +3);
-					NextPlayTime1 = new Date((calLP1.getTime()).getTime());
-					System.out.println("LP1:"+NextPlayTime1);
+					Npt1 = new Date((calLP1.getTime()).getTime());
+					System.out.println("LP1:"+Npt1 );
 
-				}else if(threeHourBeforeFlag==1  && (currenttimestamp.compareTo(NextPlayTime2))==1 ) {  //3時間以内かつ3時間以内の再生が無いかどうか
+				}else if(threeHourBeforeFlag==1  && (currenttimestamp.compareTo(Npt2))==1 ) {  //3時間以内かつ3時間以内の再生が無いかどうか
 
 					System.out.println("3時間前");
 					System.out.println("音声データ取得：" + alert[1][0]);
@@ -213,9 +232,9 @@ public class TimeJudgeServlet extends HttpServlet{
 					Calendar calLP2 = Calendar.getInstance();
 					calLP2.setTime(dt);
 					calLP2.add(Calendar.HOUR, +3);
-					NextPlayTime2 = new Date((calLP2.getTime()).getTime());
-					System.out.println("LP2:"+NextPlayTime2);
-				}else if(oneDayBeforeFlag==1 && (currenttimestamp.compareTo(NextPlayTime3))==1 ) { //1日以内かつであり、3時間以内の再生が無いかどうか
+					Npt2 = new Date((calLP2.getTime()).getTime());
+					System.out.println("LP2:"+Npt2);
+				}else if(oneDayBeforeFlag==1 && (currenttimestamp.compareTo(Npt3))==1 ) { //1日以内かつであり、3時間以内の再生が無いかどうか
 
 					System.out.println("1日前");
 					System.out.println("音声データ取得：" + alert[2][0]);
@@ -225,9 +244,9 @@ public class TimeJudgeServlet extends HttpServlet{
 					Calendar calLP3 = Calendar.getInstance();
 					calLP3.setTime(dt);
 					calLP3.add(Calendar.HOUR, +3);
-					NextPlayTime3 = new Date((calLP3.getTime()).getTime());
-					System.out.println("LP3:"+NextPlayTime3);
-				}else if(twoDayBeforeFlag==1 && (currenttimestamp.compareTo(NextPlayTime4))==1 ) { //2日以内かつであり、3時間以内の再生が無いかどうか
+					Npt3 = new Date((calLP3.getTime()).getTime());
+					System.out.println("LP3:"+Npt3);
+				}else if(twoDayBeforeFlag==1 && (currenttimestamp.compareTo(Npt4))==1 ) { //2日以内かつであり、3時間以内の再生が無いかどうか
 
 
 					System.out.println("2日前");
@@ -238,8 +257,8 @@ public class TimeJudgeServlet extends HttpServlet{
 					Calendar calLP4 = Calendar.getInstance();
 					calLP4.setTime(dt);
 					calLP4.add(Calendar.HOUR, +3);
-					NextPlayTime4 = new Date((calLP4.getTime()).getTime());
-					System.out.println("LP4:"+NextPlayTime4);
+					Npt4 = new Date((calLP4.getTime()).getTime());
+					System.out.println("LP4:"+Npt4);
 				}
 			}else {
 				Calendar caldelete = Calendar.getInstance();
