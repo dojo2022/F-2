@@ -53,6 +53,9 @@ public class LoginServlet extends HttpServlet {
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/imoketu/TaskListServlet");
+
+			// 音声サーブレットにリダイレクトする
+			response.sendRedirect("/imoketu/TimeJudgeServlet");
 		}
 		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
