@@ -12,7 +12,9 @@
 <title>いもケツ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/tasklist.css">
 <link rel="stylesheet" href="/imoketu/css/common.css">
 </head>
@@ -20,16 +22,16 @@
 	<div class="parent">
 
 		<div class="menu">
-		<div class="clockdiv">
-			<a class="active" id="clock">現在日時</a>
-		</div>
-			<ul class="menu_ber">
-				<li class="menu_content"><a class="menu_add"
+			<div class="clockdiv">
+				<a class="active" id="clock">現在日時</a>
+			</div>
+			<ul class="menu_bar" id="menu_bar">
+				<li class="menu_content"><a class="menu_add" id="menu_list"
 					href="/imoketu/TaskListServlet">タスク確認</a></li>
-				<li class="menu_content"><a class="menu_add"
+				<li class="menu_content"><a class="menu_add" id="menu_add"
 					href="/imoketu/TaskAddServlet">タスク追加</a></li>
-				<li class="menu_content"><a class="menu_add"
-					href="/imoketu/ExtraServlet">エクストラモード<br>about
+				<li class="menu_content"><a class="menu_add" id="menu_extra"
+					href="/imoketu/ExtraServlet">about
 				</a></li>
 				<li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
 			</ul>
@@ -55,8 +57,8 @@
 							<tr id="data_row${e.taskid}">
 								<td>${e.taskname}</td>
 								<td>${e.tasklimit}</td>
-								<td id="state"><input type="text" id="state_box${e.taskid}" class="state"
-									name="statebox" value="未着手" readonly style=""></td>
+								<td id="state"><input type="text" id="state_box${e.taskid}"
+									class="state" name="statebox" value="未着手" readonly style=""></td>
 								<td><input type="submit" class="btn1" id="begin${e.taskid}"
 									name="${e.taskid}" value="着手" classs="${e.tasklimit}"><input
 									type="submit" class="btn2" id="complete${e.taskid}"
@@ -95,7 +97,26 @@
 			</div>
 		</div>
 	</div>
-	<script>
+<script>
+	//メニューバーのマウスオーバー時のイベント
+	let bar = document.getElementById('menu_bar');
+	let menu_list = document.getElementById('menu_list');
+	let menu_add = document.getElementById('menu_add');
+	let menu_extra = document.getElementById('menu_extra');
+
+	bar.addEventListener("mouseover", function(event) {
+  	// mouseover の対象を強調
+  		event.target.style.color = "orange";
+
+  	// 少し待ってから色をリセット
+  	setTimeout(function() {
+    	event.target.style.color = "";
+  	}, 500);
+	}, false);
+
+
+
+	//メニューバーここまで
 	  /* 時計 */
 	  function recalc() {
 	    let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'];

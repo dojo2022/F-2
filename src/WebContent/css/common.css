@@ -21,7 +21,7 @@ body{
   width: 20%;
 }
 
-ul.menu_ber {
+ul.menu_bar {
 	margin: 0;
 	margin-top: 15px;
 	padding: 0;
@@ -33,6 +33,7 @@ ul.menu_ber {
 li.menu_content a {
 	display: block;
 	padding: 8px 16px;
+	margin: 0 20px;
 	text-decoration: none;
 	color: #000000;
 	border-bottom: 2px dashed #ffc9d2;
@@ -49,10 +50,7 @@ li.menu_content a.active {
 	border-radius: 20px;
 	color: #000000;
 }
-li.menu_content a:hover:not(.active) {
-	color: #ffffff;
-	background-color: #1b2538;
-}
+
 li.menu_content_image{
   position: relative;
   margin-top: 100%;
@@ -101,3 +99,35 @@ li.menu_content_image{
 
 /* Extra.cssおわり */
 
+/* メニューバーのアイコン */
+#menu_list:hover:before{
+	content: url("../img/hosiaka.png");
+	margin: 0px;
+	padding: 0px;
+}
+#menu_list:hover:after{
+	content: url("../img/hosiaka.png");
+	margin: 0px;
+	padding: 0px;
+}
+#menu_add:hover:before{
+	content: url("../img/hosiao.png");
+	margin: 0px;
+	padding: 0px;
+}
+#menu_add:hover:after{
+	content: url("../img/hosiao.png");
+	margin: 0px;
+	padding: 0px;
+}
+#menu_extra:hover:before{
+	content: url("../img/hosikira.png");
+	margin: 0px;
+	padding: 0px;
+}
+#menu_extra:hover:after{
+	content: url("../img/hosikira.png");
+	margin: 0px;
+	padding: 0px;
+}
+/*メニューバーのアイコン終わり*/
