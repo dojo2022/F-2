@@ -23,15 +23,19 @@ body{
 
 ul.menu_ber {
 	margin: 0;
+	margin-top: 15px;
 	padding: 0;
 	list-style-type: none;
-	background-color: #eeeeee;
+	background-color: #fff;
+	border: 10px #ffdac8 solid;
+	border-radius: 10px;
 }
 li.menu_content a {
 	display: block;
 	padding: 8px 16px;
 	text-decoration: none;
 	color: #000000;
+	border-bottom: 2px dashed #ffc9d2;
 }
 li.menu_content {
 	text-align: center;
@@ -41,7 +45,9 @@ li.menu_content:last-child {
 }
 li.menu_content a.active {
 	color: #ffffff;
-	background-color: #da3c41;
+	background-color: #cdfcff;
+	border-radius: 20px;
+	color: #000000;
 }
 li.menu_content a:hover:not(.active) {
 	color: #ffffff;

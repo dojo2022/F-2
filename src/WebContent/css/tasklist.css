@@ -2,6 +2,8 @@
 body, html {
     height: 100%;
     font-family: 'Hachi Maru Pop', cursive;
+    background-image: url(../img/haikei.png);
+    background-repeat: no-repeat;
 }
 .listdiv {
 	width: 100%;
@@ -10,20 +12,28 @@ body, html {
 }
 
 .list_header {
-
+  font-size: 40px;
+  color: #ff97b3;
+  font-weight: bold;
   height: 24px;
   padding: 5px;
   text-align: left;
-  border-style: solid;
 }
 
 div#table {
-  width: 750px;
+  width: 950px;
   height: 350px;
-  overflow: auto;		/* はみ出した場合は、スクロールバーを表示する */
+  overflow-x: hidden;		/* はみ出した場合は、スクロールバーを表示する */
   font-weight:1000;
   font-size: 22px;
   margin:7%;
+  color: #fff;
+  padding: 20px;
+  font-size: 22px;
+  background: #fff3f0;;
+  border: 2px dashed #F7F9CC;
+  border-radius: 10px;
+  box-shadow: 0 0 0 7px #ffe3dc;
 }
 table#list th, table#list td {
   border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
@@ -33,4 +43,49 @@ table#list th, table#list td {
   text-align: left;
   white-space: nowrap;		/* 折り返さない */
   font-weight:1000;
+}
+.state {
+  width: 60px;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+.clockdiv {
+  background-color: #cdfcff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF8095;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FFE6EA;
+  border-radius: 5px;
+}
+
+.btn1 {
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #cdfcff;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+}
+
+.btn2 {
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #cdfcff;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+}
+
+.btn3 {
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #cdfcff;
+	border: 1px solid #40979d;
+	border-radius: 20px;
 }
