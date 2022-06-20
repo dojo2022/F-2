@@ -39,7 +39,7 @@ CREATE TABLE Audio(
 TASKテーブルにテストデータを追加
 INSERT INTO Task (Task_Name, Task_Limit, State_Flag, User_Id) 
  VALUES  
-('タスク1',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),0,'DOJO1'),
+('タスク1',parsedatetime(, 'yyyy-MM-dd hh:mm'),0,'DOJO1'),
 ('タスク2',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),0,'DOJO1'),
 ('タスク3',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),1,'DOJO1'),
 ('タスク4',parsedatetime(CURRENT_TIMESTAMP, 'yyyy-MM-dd hh:mm'),2,'DOJO1'),
@@ -64,7 +64,7 @@ INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('11', '/imoketu/audio/sample11.
 【Audioデータを登録するSQL文】//本番音声ver
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('1', '/imoketu/audio/001_タスク追加時.wav');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('2', '/imoketu/audio/002_未着手二日前.wav');
-INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('3', '/imoketu/audio/003_未着手一日ver2.wav');
+INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('3', '/imoketu/audio/003_未着手一日前ver2.wav');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('4', '/imoketu/audio/004_未着手・未完了当日ver2.wav');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('5', '/imoketu/audio/005_未完了・未着手3時間前.wav');
 INSERT INTO Audio (Audio_Id, Audio_Path) VALUES ('6', '/imoketu/audio/006_未着手・未着手　1時間前.wav');
