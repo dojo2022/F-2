@@ -10,10 +10,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/common.css">
-<link rel="stylesheet" href="/imoketu/css/modal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+
+<!-- モーダルウィンドウ -->
+  <div class="modal" id="modal">
+    <a href="#!" class="overlay"></a>
+    <div class="modal-wrapper">
+      <div class="modal-contents">
+        <a href="#!" class="modal-close">✕</a>
+        <div class="modal-content">
+          <p id="test">test</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- モーダルウィンドウここまで -->
+
   <!-- メイン -->
     <!-- メニューはじまり -->
   <main>
@@ -45,56 +59,31 @@
       <ul>
         <li class="extrali">【エクストラモード】</li>
         <!-- <form method="POST" action="/imoketu/ExtraServlet">  -->
-        <div class="newline">
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID1"]} name=${PathList["VP1"]}>音声1</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID2"]} name=${PathList["VP2"]}>音声2</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID3"]} name=${PathList["VP3"]}>音声3</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID4"]} name=${PathList["VP4"]}>音声4</button></li>
-        </div>
-        <div class="newline">
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>音声5</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>音声6</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID7"]} name=${PathList["VP7"]}>音声7</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID8"]} name=${PathList["VP8"]}>音声8</button></li>
-        </div>
-        <div class="newline">
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID9"]} name=${PathList["VP9"]}>音声9</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID10"]} name=${PathList["VP10"]}>音声10</button></li>
-          <li class="extrali"><button class="button" type="button" id=${PathList["ID11"]} name=${PathList["VP11"]}>音声11</button></li>
-        </div>
-        <div>
+
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID1"]} name=${PathList["VP1"]}>タスク追加時</button></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID2"]} name=${PathList["VP2"]}>未着手二日前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID3"]} name=${PathList["VP3"]}>未着手一日前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID4"]} name=${PathList["VP4"]}>未着手・未完了当日</button></a></li>
+
+
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>未完了・未着手3時間前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button  class="button" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>未着手・未着手　1時間前</button></a></li>
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID7"]} name=${PathList["VP7"]}>着手前日以前</button></li>
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID8"]} name=${PathList["VP8"]}>着手当日</button></li>
+
+
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID9"]} name=${PathList["VP9"]}>着手2時間前</button></li>
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID10"]} name=${PathList["VP10"]}>完了時期限以内</button></li>
+          <li class="extrali"><button class="button" type="button" id=${PathList["ID11"]} name=${PathList["VP11"]}>完了期限超過</button></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID12"]} name=${PathList["VP12"]}>タスク期限超過</button></a></li>
+
           <li class="extrali"><button id="stop">停止</button></li>
-        </div>
       </ul>
     </div>
     <!-- エクストラ画面おわり -->
   </div>
   </main>
   <!-- メインおわり -->
-
-  <!-- モーダルウィンドウはじまり -->
-  <div id="modal-overlay">
-    <div class="modal-mask"></div>
-      <div class="modal-container">
-        <div class="modal-inner">
-          <div class="modal-title">期限が迫っているタスクを表示</div>
-          <div class="modal-text">
-          <!-- ここにタスク期限テーブルからタスク情報を引っ張ってくる -->
-          	<p>
-			ボタンをクリックすると非同期通信でサーブレットからDBデータを取得します。
-			</p>
-			<button id="getbox" type="button">データの取得</button>
-			<button id="delbox">データ消去ボタン</button>
-			<div id="result"></div>
-
-          </div>
-          <button class="close">×</button>
-        </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="/imoketu/js/common.js"></script> <!-- ご自身のパスに変更 -->
-  <!-- モーダルウィンドウおわり -->
 
 <script>
   /* 時計 */
@@ -132,9 +121,27 @@ $(function(){
         console.log($(this).text());//ボタンの値
         console.log($(this).attr('id'));//ボタンの属性値を取得
         console.log($(this).attr('name'));//ボタンの属性値を取得
-        const music = new Audio($(this).attr('name'));	//パスを読み込んでmp3ファイルを準備する
+        const music = new Audio($(this).attr('name'));	//パスを読み込んでファイルを準備する
         //music.currentTime = 0;//サウンドを停止
         music.play();  //サウンドを再生
+        if($(this).attr('id') == "2"){
+        	document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
+        }
+        if($(this).attr('id') == "3"){
+        	document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
+        }
+        if($(this).attr('id') == "4"){
+        	document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
+        }
+        if($(this).attr('id') == "5"){
+        	document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
+        }
+        if($(this).attr('id') == "6"){
+        	document.getElementById("test").innerText = "バカ兄貴ーはやしくしろー！！";
+        }
+        if($(this).attr('id') == "12"){
+        	document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
+        }
 
 		//音声再生が終了したらボタンを有効化
 		music.onended = function(){
@@ -149,32 +156,45 @@ $(function(){
 });
 /* 音声再生おわり */
 
-/* モーダルの中身 */
-/* const getData = () =>{
-	  let request = new XMLHttpRequest();
-	  request.onreadystatechange = function(e){
-	    if (request.readyState == 4){
-	      if (request.status == 200){
-	        let node = document.getElementById("result");
-	        node.innerHTML = request.responseText;
-	      }else{
-	        console.error(request.statusText);
-	      }
-	    }
-	  }
-	  request.open('GET', 'http://localhost:8080/example/UpdateDbApi?role=1', true);
-	  request.send();
-	  let del = document.getElementById("delbox");
-	  del.style.display = 'block';
-	}
-	getbox.addEventListener('click', getData, false)
-	const del = (e) =>{
-		  let output = document.getElementById("result");
-		  output.innerHTML = "";
-		  e.target.style.display = 'none';
-	}
-	delbox.addEventListener('click', del, false);*/
-/* モーダルの中身おわり */
+/*
+			  var log = function(type){
+				  console.log("test");
+				//音声再生処理
+				  if(type==1){
+					const music = new Audio("/imoketu/audio/002_未着手二日前.wav");
+					music.play();
+					document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
+				  }else if(type==2){
+					const music = new Audio("/imoketu/audio/003_未着手一日前ver2.wav");
+					music.play();
+					document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
+				  }else if(type==3){
+					const music = new Audio("/imoketu/audio/004_未着手・未完了当日ver2.wav");
+					music.play();
+					document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
+				  }else if(type==4){
+					const music = new Audio("/imoketu/audio/005_未完了・未着手3時間前.wav");
+					music.play();
+					document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
+				  }else if(type==5){
+					const music = new Audio("/imoketu/audio/006_未着手・未着手　1時間前.wav");
+					music.play();
+					document.getElementById("test").innerText = "バカ兄貴ーはやしくしろー！！";
+				  }else if(type==6){
+					const music = new Audio("/imoketu/audio/012_タスク期限超過.wav");
+					music.play();
+					document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
+				  }
+				};
+				setTimeout(log, 5000,1);
+				setTimeout(log, 10000,2);
+				setTimeout(log, 15000,3);
+				setTimeout(log, 20000,4);
+				setTimeout(log, 25000,5);
+				setTimeout(log, 30000,6);
+*/
+
+
 </script>
 
 </body>
