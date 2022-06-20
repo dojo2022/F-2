@@ -1,0 +1,33 @@
+@charset "UTF-8";
+body, html {
+    height: 100%;
+    font-family: 'Hachi Maru Pop', cursive;
+}
+
+body{
+
+
+}
+form{
+	/*width:800px;
+    margin:auto;
+    font-family:"Nikukyu";*/
+    text-align:center;
+
+    }
+h1{
+	text-align:center;
+}
+
+#bg-video{
+ position: fixed;
+ right: 0;
+ bottom: 0;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ z-index: -100;
+ background: url('poster.jpg') no-repeat;
+ background-size: cover;
+}

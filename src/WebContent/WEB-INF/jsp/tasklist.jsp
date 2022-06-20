@@ -10,6 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>いもケツ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/tasklist.css">
 <link rel="stylesheet" href="/imoketu/css/common.css">
 </head>
@@ -29,66 +32,90 @@
 			</ul>
 		</div>
 		<!-- タスク確認始まり -->
-	<!-- 追加画面始まり -->
-    <div class="listdiv">
-     <div class="list_header">
-     	タスク確認
-     </div>
-		<div id="table">
-			<table id="list">
-				<tr class="columnitem">
-					<div>
-						<th>タスク名</th>
-						<th>期限</th>
-						<th>状態</th>
-						<th>状態操作</th>
-					</div>
-				</tr>
-				<c:forEach var="e" items="${taskList}">
+		<!-- 追加画面始まり -->
+		<div class="listdiv">
+			<div class="list_header">タスク確認</div>
+			<div id="table">
+				<table id="list">
+					<tr class="columnitem">
+						<div>
+							<th>タスク名</th>
+							<th>期限</th>
+							<th>状態</th>
+							<th>状態操作</th>
+						</div>
+					</tr>
+					<c:forEach var="e" items="${taskList}">
 
 
-					<c:if test="${e.stateflag == 0 }">
-						<tr id="data_row${e.taskid}">
-							<td>${e.taskname}</td>
-							<td>${e.tasklimit}</td>
-							<td id="state"><input type="text" id="state_box${e.taskid}"
-								name="statebox" value="未着手" readonly style="lightglay"></td>
-							<td><input type="submit" class="btn1"id="begin${e.taskid}" name="${e.taskid}"
-								value="着手" classs="${e.tasklimit}"><input type="submit" class="btn2"id="complete${e.taskid}"
-								name="${e.taskid}" value="完了" classs="${e.tasklimit}"><input type="submit" class="btn3"
-								id="delete${e.taskid}" name="${e.taskid}" value="削除"></td>
-						</tr>
-					</c:if>
+						<c:if test="${e.stateflag == 0 }">
+							<tr id="data_row${e.taskid}">
+								<td>${e.taskname}</td>
+								<td>${e.tasklimit}</td>
+								<td id="state"><input type="text" id="state_box${e.taskid}"
+									name="statebox" value="未着手" readonly style=""></td>
+								<td><input type="submit" class="btn1" id="begin${e.taskid}"
+									name="${e.taskid}" value="着手" classs="${e.tasklimit}"><input
+									type="submit" class="btn2" id="complete${e.taskid}"
+									name="${e.taskid}" value="完了" classs="${e.tasklimit}"><input
+									type="submit" class="btn3" id="delete${e.taskid}"
+									name="${e.taskid}" value="削除"></td>
+							</tr>
+						</c:if>
 
-					<c:if test="${e.stateflag == 1 }">
-						<tr id="data_row${e.taskid}">
-							<td>${e.taskname}</td>
-							<td>${e.tasklimit}</td>
-							<td id="state"><input type="text" id="state_box${e.taskid}"
-								name="statebox" value="着手" readonly style="lightglay"></td>
-							<td><input type="submit" class="btn2" id="complete${e.taskid}"
-								name="${e.taskid}" value="完了" classs="${e.tasklimit}"><input type="submit" class="btn3"
-								id="delete${e.taskid}" name="${e.taskid}" value="削除"></td>
-						</tr>
-					</c:if>
+						<c:if test="${e.stateflag == 1 }">
+							<tr id="data_row${e.taskid}">
+								<td>${e.taskname}</td>
+								<td>${e.tasklimit}</td>
+								<td id="state"><input type="text" id="state_box${e.taskid}"
+									name="statebox" value="着手" readonly style=""></td>
+								<td><input type="submit" class="btn2"
+									id="complete${e.taskid}" name="${e.taskid}" value="完了"
+									classs="${e.tasklimit}"><input type="submit"
+									class="btn3" id="delete${e.taskid}" name="${e.taskid}"
+									value="削除"></td>
+							</tr>
+						</c:if>
 
-					<c:if test="${e.stateflag == 2 }">
-						<tr id="data_row${e.taskid}">
-							<td>${e.taskname}</td>
-							<td>${e.tasklimit}</td>
-							<td id="state"><input type="text" id="state_box${e.taskid}"
-								name="statebox" value="完了" readonly style="lightglay"></td>
-							<td><input type="submit" class="btn3" id="${e.taskid}" name="${e.taskid}"
-								value="削除"></td>
-						</tr>
-					</c:if>
-				</c:forEach>
-			</table>
-		</div>
+						<c:if test="${e.stateflag == 2 }">
+							<tr id="data_row${e.taskid}">
+								<td>${e.taskname}</td>
+								<td>${e.tasklimit}</td>
+								<td id="state"><input type="text" id="state_box${e.taskid}"
+									name="statebox" value="完了" readonly style=""></td>
+								<td><input type="submit" class="btn3" id="${e.taskid}"
+									name="${e.taskid}" value="削除"></td>
+							</tr>
+						</c:if>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script>
+	  /* 時計 */
+	  function recalc() {
+	    let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'];
+	  	let now = new Date();
+	  	let year = now.getFullYear();
+	  	let month = now.getMonth();
+	  	let date = now.getDate();
+	  	let hour = now.getHours();
+	  	let min = now.getMinutes();
+	  	let sec = now.getSeconds();
+	  	document.getElementById('clock').innerHTML
+	  	= year + '年' + month + '月' + date + '日'
+	  	+ '(' + dayOfWeek[now.getDay()] + ')' + '<br>'
+	  	+  hour + '時' + min + '分' + sec + '秒';
+	  	refresh();
+	  }
 
+	  function refresh() {
+	  	setTimeout(recalc, 1000);
+	  }
+
+	  recalc();
+	  /* 時計おわり */
 	//状態変更の非同期通信部
 $(function(){
 

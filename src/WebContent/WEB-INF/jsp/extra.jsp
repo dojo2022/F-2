@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>エクストラモード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/common.css">
 <link rel="stylesheet" href="/imoketu/css/modal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

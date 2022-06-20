@@ -5,15 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>いもけつ|ログイン</title>
-<link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/imoketu/css/login.css">
 </head>
 <body>
+<div class="wrap">
+<video id="bg-video" src="img/heart_bg.mp4" poster="poster.jpg" autoplay loop muted></video>
 <h1>妹がケツを叩いてタスク管理を<br>してくれるアプリ</h1>
 
 
 			<form id="login_form" class="form" method="POST"
 				action="/imoketu/LoginServlet">
-				<img src="img/logo.jpg"><br><br>
 				ログインID<br><br>
 				<input type="text" name="ID"  id="user_id"><br><br>
 				パスワード<br><br>
@@ -22,7 +26,7 @@
 				<br>
 				<span id="error_message">${message}</span>
 			</form>
-
+</div>
 <script type="text/javascript">
 		document
 				.getElementById("login_button")
@@ -43,23 +47,6 @@
 	</script>
 
 </body>
-
-<style>
-body{
-	background-color:#fcc;
-	font-family:"Noto Sans JP";
-}
-form{
-	/*width:800px;
-    margin:auto;
-    font-family:"Nikukyu";*/
-    text-align:center;
-
-    }
-h1{
-	text-align:center;
-}
-</style>
 
 </html>
 

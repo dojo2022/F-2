@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>タスク管理追加画面</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/taskadd.css">
 <link rel="stylesheet" href="/imoketu/css/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,9 +30,9 @@
      </div>
 <div class="title">
 <!-- フォーム -->
-	<h1>タイトル</h1>
-		<input type="text" id=taskname placeholder="タスクタイトルを入力して下さい"class="title-name" name="taskname">
-	<h1>期限</h1>
+	<h1>タスク名</h1>
+		<input type="text" id=taskname placeholder="タスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30">
+	<h1>締め切り</h1>
 		<input type="datetime-local" id=datetime class="datetime" name="tasklimit">
 	<div></div>
 		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
@@ -39,6 +42,30 @@
 <!-- 追加画面終わり -->
 </div>
 <script>
+/* 時計 */
+function recalc() {
+  let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'];
+	let now = new Date();
+	let year = now.getFullYear();
+	let month = now.getMonth();
+	let date = now.getDate();
+	let hour = now.getHours();
+	let min = now.getMinutes();
+	let sec = now.getSeconds();
+	document.getElementById('clock').innerHTML
+	= year + '年' + month + '月' + date + '日'
+	+ '(' + dayOfWeek[now.getDay()] + ')' + '<br>'
+	+  hour + '時' + min + '分' + sec + '秒';
+	refresh();
+}
+
+function refresh() {
+	setTimeout(recalc, 1000);
+}
+
+recalc();
+/* 時計おわり */
+
 //タスク追加ボタンを押下時、音声再生
 $(function(){
 	  $('#register').click(function(){
