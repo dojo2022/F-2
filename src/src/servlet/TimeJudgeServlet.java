@@ -311,6 +311,78 @@ public class TimeJudgeServlet extends HttpServlet{
 //					System.out.println("アラート文字取得:" + alert[1][1]);
 
 
+					int role = Integer.parseInt(request.getParameter("role"));
+					//Map<Integer,String> data = new HashMap<>();
+
+					String audioPath = null;
+
+					try {
+
+						// データベースとの接続の確立
+						Class.forName("org.h2.Driver");
+						String url = "jdbc:h2:file:C:/database/imoketu";
+						Connection con = DriverManager.getConnection(url, "sa", "");
+						//SQL文のテンプレート作成
+						String sql2 =
+								"SELECT Audio_Path  " +
+								"FROM AUDIO WHERE Audio_Id = 5";
+						//SQLインジェクション対策
+						PreparedStatement prepStmt = con.prepareStatement(sql);
+						//SQL文"?"の箇所に値を埋める
+						//prepStmt.setInt(1, role);
+						//DBに対しQuery実行。rsに実行結果を蓄積。
+						ResultSet rs2 = prepStmt.executeQuery();
+						//SQLの実行結果の処理
+						rs2.next();
+						audioPath = rs.getString("AUDIO_PATH");
+
+							/*
+								String role_name="";
+								String user = rs.getString("USERNAME");
+								Integer id = rs.getInt("ID");
+								role = rs.getInt("ROLE");
+								if( role == 1) role_name = "管理者";
+								else if( role == 2) role_name = "編集者";
+								else role_name = "寄稿者";
+								String email = rs.getString("EMAIL");
+								String zdata = user + ":" + email + ":" + role_name;
+								data.put(id,zdata);
+								*/
+
+						//DBのクローズ
+
+						rs.close();
+						prepStmt.close();
+						con.close();
+						} catch (ClassNotFoundException e) {
+									e.printStackTrace();
+						} catch (SQLException e) {
+									e.printStackTrace();
+						}
+
+					//ネットストリームに書き込む
+
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<div id=\"modal-overlay\">");
+					out.println("<div class=\"modal-mask\"></div>");
+					out.println("<div class=\"modal-container\">");
+					out.println("<div class=\"modal-inner\">");
+					out.println("<div class=\"modal-title\">3時間前よ、はやくしなさいって！</div>");
+					out.println("<div class=\"modal-text\">");
+					out.println("<p>タスクの期限が3時間前です。</p>");
+					out.println("</div>");
+					out.println("<button class=\"close\">×</button>");
+					out.println("</div></div></div>");
+					out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>");
+					out.println("<script src=\"/imoketu/js/common.js\"></script>");
+					out.println("<script>");
+					out.println("const music = new Audio(" + audioPath + ");");
+					out.println("music.play();");
+					out.println("</script>");
+
+
+
 					//3時間後のタイムスタンプを格納
 					Calendar calLP2 = Calendar.getInstance();
 					calLP2.setTime(dt);
@@ -322,6 +394,78 @@ public class TimeJudgeServlet extends HttpServlet{
 					System.out.println("1日前");
 //					System.out.println("音声データ取得：" + alert[2][0]);
 //					System.out.println("アラート文字取得:" + alert[2][1]);
+
+
+					int role = Integer.parseInt(request.getParameter("role"));
+					//Map<Integer,String> data = new HashMap<>();
+
+					String audioPath = null;
+
+					try {
+
+						// データベースとの接続の確立
+						Class.forName("org.h2.Driver");
+						String url = "jdbc:h2:file:C:/database/imoketu";
+						Connection con = DriverManager.getConnection(url, "sa", "");
+						//SQL文のテンプレート作成
+						String sql2 =
+								"SELECT Audio_Path  " +
+								"FROM AUDIO WHERE Audio_Id = 3";
+						//SQLインジェクション対策
+						PreparedStatement prepStmt = con.prepareStatement(sql);
+						//SQL文"?"の箇所に値を埋める
+						//prepStmt.setInt(1, role);
+						//DBに対しQuery実行。rsに実行結果を蓄積。
+						ResultSet rs2 = prepStmt.executeQuery();
+						//SQLの実行結果の処理
+						rs2.next();
+						audioPath = rs.getString("AUDIO_PATH");
+
+							/*
+								String role_name="";
+								String user = rs.getString("USERNAME");
+								Integer id = rs.getInt("ID");
+								role = rs.getInt("ROLE");
+								if( role == 1) role_name = "管理者";
+								else if( role == 2) role_name = "編集者";
+								else role_name = "寄稿者";
+								String email = rs.getString("EMAIL");
+								String zdata = user + ":" + email + ":" + role_name;
+								data.put(id,zdata);
+								*/
+
+						//DBのクローズ
+
+						rs.close();
+						prepStmt.close();
+						con.close();
+						} catch (ClassNotFoundException e) {
+									e.printStackTrace();
+						} catch (SQLException e) {
+									e.printStackTrace();
+						}
+
+					//ネットストリームに書き込む
+
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<div id=\"modal-overlay\">");
+					out.println("<div class=\"modal-mask\"></div>");
+					out.println("<div class=\"modal-container\">");
+					out.println("<div class=\"modal-inner\">");
+					out.println("<div class=\"modal-title\">明日締め切りのタスクがあるわよ、大丈夫なの？</div>");
+					out.println("<div class=\"modal-text\">");
+					out.println("<p>タスクの期限が1日前です。</p>");
+					out.println("</div>");
+					out.println("<button class=\"close\">×</button>");
+					out.println("</div></div></div>");
+					out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>");
+					out.println("<script src=\"/imoketu/js/common.js\"></script>");
+					out.println("<script>");
+					out.println("const music = new Audio(" + audioPath + ");");
+					out.println("music.play();");
+					out.println("</script>");
+
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP3 = Calendar.getInstance();
@@ -335,6 +479,78 @@ public class TimeJudgeServlet extends HttpServlet{
 					System.out.println("2日前");
 //					System.out.println("音声データ取得：" + alert[3][0]);
 //					System.out.println("アラート文字取得:" + alert[3][1]);
+
+
+					int role = Integer.parseInt(request.getParameter("role"));
+					//Map<Integer,String> data = new HashMap<>();
+
+					String audioPath = null;
+
+					try {
+
+						// データベースとの接続の確立
+						Class.forName("org.h2.Driver");
+						String url = "jdbc:h2:file:C:/database/imoketu";
+						Connection con = DriverManager.getConnection(url, "sa", "");
+						//SQL文のテンプレート作成
+						String sql2 =
+								"SELECT Audio_Path  " +
+								"FROM AUDIO WHERE Audio_Id = 2";
+						//SQLインジェクション対策
+						PreparedStatement prepStmt = con.prepareStatement(sql);
+						//SQL文"?"の箇所に値を埋める
+						//prepStmt.setInt(1, role);
+						//DBに対しQuery実行。rsに実行結果を蓄積。
+						ResultSet rs2 = prepStmt.executeQuery();
+						//SQLの実行結果の処理
+						rs2.next();
+						audioPath = rs.getString("AUDIO_PATH");
+
+							/*
+								String role_name="";
+								String user = rs.getString("USERNAME");
+								Integer id = rs.getInt("ID");
+								role = rs.getInt("ROLE");
+								if( role == 1) role_name = "管理者";
+								else if( role == 2) role_name = "編集者";
+								else role_name = "寄稿者";
+								String email = rs.getString("EMAIL");
+								String zdata = user + ":" + email + ":" + role_name;
+								data.put(id,zdata);
+								*/
+
+						//DBのクローズ
+
+						rs.close();
+						prepStmt.close();
+						con.close();
+						} catch (ClassNotFoundException e) {
+									e.printStackTrace();
+						} catch (SQLException e) {
+									e.printStackTrace();
+						}
+
+					//ネットストリームに書き込む
+
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<div id=\"modal-overlay\">");
+					out.println("<div class=\"modal-mask\"></div>");
+					out.println("<div class=\"modal-container\">");
+					out.println("<div class=\"modal-inner\">");
+					out.println("<div class=\"modal-title\">明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ</div>");
+					out.println("<div class=\"modal-text\">");
+					out.println("<p>タスクの期限が2日前です。</p>");
+					out.println("</div>");
+					out.println("<button class=\"close\">×</button>");
+					out.println("</div></div></div>");
+					out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>");
+					out.println("<script src=\"/imoketu/js/common.js\"></script>");
+					out.println("<script>");
+					out.println("const music = new Audio(" + audioPath + ");");
+					out.println("music.play();");
+					out.println("</script>");
+
 
 					//3時間後のタイムスタンプを格納
 					Calendar calLP4 = Calendar.getInstance();
@@ -353,6 +569,79 @@ public class TimeJudgeServlet extends HttpServlet{
 
 				if((currenttimestamp.compareTo(timeOverRange))!=1) {
 					System.out.println("超過音声再生期間");
+
+
+					int role = Integer.parseInt(request.getParameter("role"));
+					//Map<Integer,String> data = new HashMap<>();
+
+					String audioPath = null;
+
+					try {
+
+						// データベースとの接続の確立
+						Class.forName("org.h2.Driver");
+						String url = "jdbc:h2:file:C:/database/imoketu";
+						Connection con = DriverManager.getConnection(url, "sa", "");
+						//SQL文のテンプレート作成
+						String sql2 =
+								"SELECT Audio_Path  " +
+								"FROM AUDIO WHERE Audio_Id = 12";
+						//SQLインジェクション対策
+						PreparedStatement prepStmt = con.prepareStatement(sql);
+						//SQL文"?"の箇所に値を埋める
+						//prepStmt.setInt(1, role);
+						//DBに対しQuery実行。rsに実行結果を蓄積。
+						ResultSet rs2 = prepStmt.executeQuery();
+						//SQLの実行結果の処理
+						rs2.next();
+						audioPath = rs.getString("AUDIO_PATH");
+
+							/*
+								String role_name="";
+								String user = rs.getString("USERNAME");
+								Integer id = rs.getInt("ID");
+								role = rs.getInt("ROLE");
+								if( role == 1) role_name = "管理者";
+								else if( role == 2) role_name = "編集者";
+								else role_name = "寄稿者";
+								String email = rs.getString("EMAIL");
+								String zdata = user + ":" + email + ":" + role_name;
+								data.put(id,zdata);
+								*/
+
+						//DBのクローズ
+
+						rs.close();
+						prepStmt.close();
+						con.close();
+						} catch (ClassNotFoundException e) {
+									e.printStackTrace();
+						} catch (SQLException e) {
+									e.printStackTrace();
+						}
+
+					//ネットストリームに書き込む
+
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<div id=\"modal-overlay\">");
+					out.println("<div class=\"modal-mask\"></div>");
+					out.println("<div class=\"modal-container\">");
+					out.println("<div class=\"modal-inner\">");
+					out.println("<div class=\"modal-title\">はぁ...あきれた。何度いったらわかるの？</div>");
+					out.println("<div class=\"modal-text\">");
+					out.println("<p>タスクの期限が超過しています。</p>");
+					out.println("</div>");
+					out.println("<button class=\"close\">×</button>");
+					out.println("</div></div></div>");
+					out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>");
+					out.println("<script src=\"/imoketu/js/common.js\"></script>");
+					out.println("<script>");
+					out.println("const music = new Audio(" + audioPath + ");");
+					out.println("music.play();");
+					out.println("</script>");
+
+
 				}
 
 			}
@@ -371,6 +660,9 @@ public class TimeJudgeServlet extends HttpServlet{
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			//cardList = null;
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
 		}
 
 
@@ -391,7 +683,7 @@ public class TimeJudgeServlet extends HttpServlet{
 
 		}
 	};
-	timer.schedule(task, 0, 1000);
+	timer.schedule(task, 0, 5000);
 
 	}
 
