@@ -12,32 +12,7 @@
 <link rel="stylesheet" href="/imoketu/css/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
-
 <body>
-
-	<!-- モーダルウィンドウ -->
-<!--	<div class="overlay"> -->
-<!--		<div class="btn_area"> -->
-	<!--		<p class="ttl">バカ兄貴ーはやしくしろー！！</p> -->
-		<!--	<p><br><br>タスクの期限が１時間前です。<br></p> -->
-			<!--<button>閉じる</button> -->
-	<!--	</div>-->
-<!--	</div>-->
-	<!-- モーダルウィンドウここまで -->
-
-  <div class="modal" id="modal">
-    <a href="#!" class="overlay"></a>
-    <div class="modal-wrapper">
-      <div class="modal-contents">
-        <a href="#!" class="modal-close">✕</a>
-        <div class="modal-content">
-          <p id="test">こんどはちゃんと終わらせるようにしなさいよね</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 <div class="parent">
       <div class="menu">
         <ul class="menu_ber">
@@ -60,7 +35,7 @@
 	<h1>締め切り</h1>
 		<input type="datetime-local" id=datetime class="datetime" name="tasklimit">
 	<div></div>
-		<div class="modal-open"><a href="#modal"><input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加"></a></div>
+		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
 <!-- フォーム終わり -->
 </div>
 </div>
@@ -110,58 +85,12 @@ $(function(){
 			  const music = new Audio("/imoketu/audio/001_タスク追加時.wav");
 			  music.play();
 			 //音声再生終了(3秒後)後ページをリロード
-/*			  setTimeout(function(){
+			  setTimeout(function(){
 				  window.location.reload();
 				      },3000);
-*/
-			  var log = function(type){
-				  console.log("test");
-				//音声再生処理
-				  if(type==1){
-					const music = new Audio("/imoketu/audio/002_未着手二日前.wav");
-					music.play();
-					document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
-				  }else if(type==2){
-					const music = new Audio("/imoketu/audio/003_未着手一日前ver2.wav");
-					music.play();
-					document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
-				  }else if(type==3){
-					const music = new Audio("/imoketu/audio/004_未着手・未完了当日ver2.wav");
-					music.play();
-					document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
-				  }else if(type==4){
-					const music = new Audio("/imoketu/audio/005_未完了・未着手3時間前.wav");
-					music.play();
-					document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
-				  }else if(type==5){
-					const music = new Audio("/imoketu/audio/006_未着手・未着手　1時間前.wav");
-					music.play();
-					document.getElementById("test").innerText = "バカ兄貴ーはやしくしろー！！";
-				  }else if(type==6){
-					const music = new Audio("/imoketu/audio/012_タスク期限超過.wav");
-					music.play();
-					document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
-				  }
-				};
-				setTimeout(log, 5000,1);
-				setTimeout(log, 10000,2);
-				setTimeout(log, 15000,3);
-				setTimeout(log, 20000,4);
-				setTimeout(log, 25000,5);
-				setTimeout(log, 30000,6);
 		  });
 	});
 });
-/*
-$(function(){
-	$(".overlay").show();
-	$.cookie('btnFlg') == 'on'?$(".overlay").hide():$(".overlay").show();
-	$(".btn_area button").click(function(){
-		$(".overlay").fadeOut();
-		$.cookie('btnFlg', 'on', { expires: 30,path: '/' }); //cookieの保存
-	});
-});
-*/
 </script>
 </body>
 </html>
