@@ -18,9 +18,12 @@
 </head>
 <body>
 	<div class="parent">
+
 		<div class="menu">
+		<div class="clockdiv">
+			<a class="active" id="clock">現在日時</a>
+		</div>
 			<ul class="menu_ber">
-				<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
 				<li class="menu_content"><a class="menu_add"
 					href="/imoketu/TaskListServlet">タスク確認</a></li>
 				<li class="menu_content"><a class="menu_add"
@@ -34,7 +37,7 @@
 		<!-- タスク確認始まり -->
 		<!-- 追加画面始まり -->
 		<div class="listdiv">
-			<div class="list_header">タスク確認</div>
+			<div class="list_header">♡タスク確認♡</div>
 			<div id="table">
 				<table id="list">
 					<tr class="columnitem">
@@ -52,7 +55,7 @@
 							<tr id="data_row${e.taskid}">
 								<td>${e.taskname}</td>
 								<td>${e.tasklimit}</td>
-								<td id="state"><input type="text" id="state_box${e.taskid}"
+								<td id="state"><input type="text" id="state_box${e.taskid}" class="state"
 									name="statebox" value="未着手" readonly style=""></td>
 								<td><input type="submit" class="btn1" id="begin${e.taskid}"
 									name="${e.taskid}" value="着手" classs="${e.tasklimit}"><input
@@ -68,7 +71,7 @@
 								<td>${e.taskname}</td>
 								<td>${e.tasklimit}</td>
 								<td id="state"><input type="text" id="state_box${e.taskid}"
-									name="statebox" value="着手" readonly style=""></td>
+									name="statebox" value="着手" readonly style="" class="state"></td>
 								<td><input type="submit" class="btn2"
 									id="complete${e.taskid}" name="${e.taskid}" value="完了"
 									classs="${e.tasklimit}"><input type="submit"
@@ -82,7 +85,7 @@
 								<td>${e.taskname}</td>
 								<td>${e.tasklimit}</td>
 								<td id="state"><input type="text" id="state_box${e.taskid}"
-									name="statebox" value="完了" readonly style=""></td>
+									name="statebox" value="完了" readonly style="" class="state"></td>
 								<td><input type="submit" class="btn3" id="${e.taskid}"
 									name="${e.taskid}" value="削除"></td>
 							</tr>
