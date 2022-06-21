@@ -4,30 +4,42 @@ body, html {
     font-family: 'Hachi Maru Pop', cursive;
 }
 
-body{
-
-
-}
-form{
-	/*width:800px;
-    margin:auto;
-    font-family:"Nikukyu";*/
+#login_form{
     text-align:center;
-
-    }
+    background-color: #ffeed8;
+    border-radius: 20px;
+    width: 500px;
+    border-radius: 20px;
+    border-style: none;
+    margin: auto;
+    margin-top: 80px;
+}
 h1{
+	width: 500px;
+	margin: auto;
 	text-align:center;
+	background-color: #ffd8e9;
+    margin-top: 70px;
+    border-radius: 20px;
+}
+
+.image {
+	width: 200px;
+    position: relative;
+    left: 70%;
+    bottom: 315px
 }
 
 #bg-video{
- position: fixed;
- right: 0;
- bottom: 0;
- min-width: 100%;
- min-height: 100%;
- width: auto;
- height: auto;
- z-index: -100;
- background: url('poster.jpg') no-repeat;
- background-size: cover;
+ 	position: fixed;
+ 	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+ 	width: auto;
+ 	height: auto;
+ 	z-index: -100;
+ 	background: url('poster.jpg') no-repeat;
+ 	background-size: cover;
 }
+

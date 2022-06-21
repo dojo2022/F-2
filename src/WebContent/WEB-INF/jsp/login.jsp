@@ -12,20 +12,23 @@
 </head>
 <body>
 <div class="wrap">
-<video id="bg-video" src="img/heart_bg.mp4" poster="poster.jpg" autoplay loop muted></video>
+<video id="bg-video" src="img/pastel_bg.mp4" poster="poster.jpg" autoplay loop muted></video>
 <h1>妹がケツを叩いてタスク管理を<br>してくれるアプリ</h1>
-
-
+        <div class=formout>
 			<form id="login_form" class="form" method="POST"
 				action="/imoketu/LoginServlet">
-				ログインID<br><br>
-				<input type="text" name="ID"  id="user_id"><br><br>
-				パスワード<br><br>
+				ログインID
+				<input type="text" name="ID" id="user_id"><br><br>
+				パスワード
 				<input type="password" name="PW" id="password"><br><br>
 				<button name="submit" value="submit" type="submit" id="login_button">Login</button>
 				<br>
 				<span id="error_message">${message}</span>
 			</form>
+		</div>
+		<div class="image">
+			<img alt="妹" src="./img/03okoru.png">
+		</div>
 </div>
 <script type="text/javascript">
 		document

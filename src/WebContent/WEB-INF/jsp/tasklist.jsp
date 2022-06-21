@@ -33,7 +33,7 @@
 				<li class="menu_content"><a class="menu_add" id="menu_extra"
 					href="/imoketu/ExtraServlet">about
 				</a></li>
-				<li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
+				<li class="menu_content_image"><a class="menu_add"><img src="./img/03okoru.png" class="image"></a></li>
 			</ul>
 		</div>
 		<!-- タスク確認始まり -->

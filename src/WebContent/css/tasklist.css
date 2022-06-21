@@ -2,7 +2,7 @@
 body, html {
     height: 100%;
     font-family: 'Hachi Maru Pop', cursive;
-    background-image: url(../img/haikei.png);
+    background-image: url(../img/kirakira.png);
     background-repeat: no-repeat;
 }
 .listdiv {
@@ -13,7 +13,7 @@ body, html {
 
 .list_header {
   font-size: 40px;
-  color: #ff97b3;
+  color: #ff5f4d;
   font-weight: bold;
   height: 24px;
   padding: 5px;
