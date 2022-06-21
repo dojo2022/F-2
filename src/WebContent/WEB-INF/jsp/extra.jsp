@@ -10,10 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/imoketu/css/common.css">
+<link rel="stylesheet" href="/imoketu/css/extra.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-
 <!-- モーダルウィンドウ -->
   <div class="modal" id="modal">
     <a href="#!" class="overlay"></a>
@@ -27,30 +27,34 @@
     </div>
   </div>
 <!-- モーダルウィンドウここまで -->
-
   <!-- メイン -->
     <!-- メニューはじまり -->
   <main>
     <div class="parent">
       <div class="menu">
-        <ul class="menu_ber">
-        	<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskListServlet">タスク確認</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/ExtraServlet">エクストラモード<br>about</a></li>
-          <li class="menu_content_image"><a class="menu_add">キャラクターイメージを差し込む</a></li>
-        </ul>
-      </div>
-
+			<div class="clockdiv">
+				<a class="active" id="clock">現在日時</a>
+			</div>
+			<ul class="menu_bar" id="menu_bar">
+				<li class="menu_content"><a class="menu_add" id="menu_list"
+					href="/imoketu/TaskListServlet">タスク確認</a></li>
+				<li class="menu_content"><a class="menu_add" id="menu_add"
+					href="/imoketu/TaskAddServlet">タスク追加</a></li>
+				<li class="menu_content"><a class="menu_add" id="menu_extra"
+					href="/imoketu/ExtraServlet">about
+				</a></li>
+				<li class="menu_content_image"><a class="menu_add"><img src="./img/03okoru.png" class="image"></a></li>
+			</ul>
+		</div>
     <!-- メニューおわり -->
-
     <!-- エクストラ画面はじまり -->
-    <div class="extradiv">
+    <div class="listdiv">
       <!-- ヘッダーはじまり -->
-      <div class="menu_header">
-        エクストラモード
+      <div class="list_header">
+        about
       </div>
       <!-- ヘッダーおわり -->
+      <br><br><br>
       <ul>
           <li class="aboutli">【使い方】</li>
           <li class="aboutli">タスク確認では...</li>
@@ -59,32 +63,25 @@
       <ul>
         <li class="extrali">【エクストラモード】</li>
         <!-- <form method="POST" action="/imoketu/ExtraServlet">  -->
-
           <li class="extrali"><button class="button" type="button" id=${PathList["ID1"]} name=${PathList["VP1"]}>タスク追加時</button></li>
           <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID2"]} name=${PathList["VP2"]}>未着手二日前</button></a></li>
           <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID3"]} name=${PathList["VP3"]}>未着手一日前</button></a></li>
           <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID4"]} name=${PathList["VP4"]}>未着手・未完了当日</button></a></li>
-
-
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>未完了・未着手3時間前</button></a></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button  class="button" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>未着手・未着手　1時間前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>未着手・未完了3時間前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button  class="button" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>未着手・未完了1時間前</button></a></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID7"]} name=${PathList["VP7"]}>着手前日以前</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID8"]} name=${PathList["VP8"]}>着手当日</button></li>
-
-
           <li class="extrali"><button class="button" type="button" id=${PathList["ID9"]} name=${PathList["VP9"]}>着手2時間前</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID10"]} name=${PathList["VP10"]}>完了時期限以内</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID11"]} name=${PathList["VP11"]}>完了期限超過</button></li>
           <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID12"]} name=${PathList["VP12"]}>タスク期限超過</button></a></li>
-
-          <li class="extrali"><button id="stop">停止</button></li>
+          <li class="extrali"><button id="stop" class="stopbutton">停止</button></li>
       </ul>
     </div>
     <!-- エクストラ画面おわり -->
   </div>
   </main>
   <!-- メインおわり -->
-
 <script>
   /* 時計 */
   function recalc() {
@@ -102,21 +99,17 @@
   	+  hour + '時' + min + '分' + sec + '秒';
   	refresh();
   }
-
   function refresh() {
   	setTimeout(recalc, 1000);
   }
-
   recalc();
   /* 時計おわり */
-
   /* 音声再生 */
 $(function(){
     $('.button').click(function(){
     	//全ての音声ボタンを無効化。でも既に押されたボタン情報は消されることはない。
 		//あくまでも見た目のボタンが無効化されるだけで押した事実は残る。
 		$(".button").attr('disabled','disabled');
-
 		//$(this)はクリックしたオブジェクト（すなわちボタンを指す）
         console.log($(this).text());//ボタンの値
         console.log($(this).attr('id'));//ボタンの属性値を取得
@@ -142,7 +135,6 @@ $(function(){
         if($(this).attr('id') == "12"){
         	document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
         }
-
 		//音声再生が終了したらボタンを有効化
 		music.onended = function(){
 			$(".button").removeAttr('disabled');
@@ -152,10 +144,10 @@ $(function(){
 			music.pause();
 			$(".button").removeAttr('disabled');
 		});
+
     });
 });
 /* 音声再生おわり */
-
 /*
 			  var log = function(type){
 				  console.log("test");
@@ -193,9 +185,28 @@ $(function(){
 				setTimeout(log, 25000,5);
 				setTimeout(log, 30000,6);
 */
-
-
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

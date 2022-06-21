@@ -20,7 +20,7 @@ body, html {
   text-align: left;
 }
 
-div#table {
+div#table{
   width: 950px;
   height: 470px;
   overflow-x: hidden;		/* はみ出した場合は、スクロールバーを表示する */
@@ -90,6 +90,21 @@ table#list th, table#list td {
 	border-radius: 20px;
 }
 
+.button{
+	min-width:200px;
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #cdfcff;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+}
+
+.stopbutton{
+	min-width:150px;
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #ff7377;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+}
 
 
 
