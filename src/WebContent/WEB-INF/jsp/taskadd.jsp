@@ -28,7 +28,7 @@
     <!-- 追加画面始まり -->
     <div class="adddiv">
      <div class="add_header">
-     	タスク追加
+     	☆タスク追加☆
      </div>
 <div class="title">
 <!-- フォーム -->

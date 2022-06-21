@@ -39,7 +39,7 @@
 		<!-- タスク確認始まり -->
 		<!-- 追加画面始まり -->
 		<div class="listdiv">
-			<div class="list_header">♡タスク確認♡</div>
+			<div class="list_header">☆タスク確認☆</div>
 			<div id="table">
 				<table id="list">
 					<tr class="columnitem">
