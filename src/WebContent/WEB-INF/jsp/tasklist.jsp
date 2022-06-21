@@ -113,9 +113,6 @@
     	event.target.style.color = "";
   	}, 500);
 	}, false);
-
-
-
 	//メニューバーここまで
 	  /* 時計 */
 	  function recalc() {

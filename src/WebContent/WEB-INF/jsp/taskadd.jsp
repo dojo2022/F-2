@@ -15,12 +15,14 @@
 <body>
 <div class="parent">
       <div class="menu">
-        <ul class="menu_ber">
-        	<li class="menu_content"><a class="active" id="clock">現在日時</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskListServlet">タスク確認</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
-        	<li class="menu_content"><a class="menu_add" href="/imoketu/ExtraServlet">エクストラモード<br>about</a></li>
-          <li class="menu_content_image"><a class="menu_add">キャラクター(JSON？)</a></li>
+      		<div class="clockdiv">
+				<a class="active" id="clock">現在日時</a>
+			</div>
+        <ul class="menu_bar" id="menu_bar">
+        	<li class="menu_content"><a class="menu_add" id="menu_list" href="/imoketu/TaskListServlet">タスク確認</a></li>
+        	<li class="menu_content"><a class="menu_add" id="menu_add" href="/imoketu/TaskAddServlet">タスク追加</a></li>
+        	<li class="menu_content"><a class="menu_add" id="menu_extra"href="/imoketu/ExtraServlet">about</a></li>
+          <li class="menu_content_image"><a class="menu_add"><img src="./img/03okoru.png" class="image"></a></li>
         </ul>
       </div>
     <!-- 追加画面始まり -->
@@ -31,7 +33,7 @@
 <div class="title">
 <!-- フォーム -->
 	<h1>タスク名</h1>
-		<input type="text" id=taskname placeholder="タスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30">
+		<input type="text" id="taskname" class="taskname"placeholder="30文字以内でタスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30">
 	<h1>締め切り</h1>
 		<input type="datetime-local" id=datetime class="datetime" name="tasklimit">
 	<div></div>
@@ -42,6 +44,22 @@
 <!-- 追加画面終わり -->
 </div>
 <script>
+//メニューバーのマウスオーバー時のイベント
+let bar = document.getElementById('menu_bar');
+let menu_list = document.getElementById('menu_list');
+let menu_add = document.getElementById('menu_add');
+let menu_extra = document.getElementById('menu_extra');
+
+bar.addEventListener("mouseover", function(event) {
+	// mouseover の対象を強調
+		event.target.style.color = "orange";
+
+	// 少し待ってから色をリセット
+	setTimeout(function() {
+	event.target.style.color = "";
+	}, 500);
+}, false);
+//メニューバーここまで
 /* 時計 */
 function recalc() {
   let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'];
