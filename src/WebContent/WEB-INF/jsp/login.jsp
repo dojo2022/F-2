@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-<video id="bg-video" src="img/pastel_bg.mp4" poster="poster.jpg" autoplay loop muted></video>
+<video id="bg-video" src="img/heart_bg.mp4" poster="img/haikei.png" autoplay loop muted></video>
 <h1>妹がケツを叩いてタスク管理を<br>してくれるアプリ</h1>
         <div class=formout>
 			<form id="login_form" class="form" method="POST"
@@ -26,8 +26,8 @@
 				<span id="error_message">${message}</span>
 			</form>
 		</div>
-		<div class="image">
-			<img alt="妹" src="./img/03okoru.png">
+		<div class="imagediv">
+			<img alt="妹" src="./img/03okoru.png" class="image">
 		</div>
 </div>
 <script type="text/javascript">
