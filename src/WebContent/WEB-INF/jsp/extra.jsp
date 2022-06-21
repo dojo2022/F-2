@@ -57,10 +57,11 @@
       <br><br><br>
       <ul>
           <li class="aboutli">【使い方】</li>
-          <li class="aboutli">タスク確認では登録したタスクの名前と状態が確認できて、タスク状態の変更をすることができるわよ。</li>
+          <li class="aboutli">タスク確認では登録したタスクの名前と状態が確認できて、タスク状態の変更をすることができるわよ。(｀▽´)  </li>
           <li class="aboutli">タスク追加では新しいタスクの追加ができるわよ。忘れずに登録しなさいよ！(* ･`д･´)</li>
           <li class="aboutli">エクストラモードでは登録されている音声を自由に再生することができるわよ。罵られたいあなたには最適ね(|｜!￣Д￣)</li>
       </ul>
+      <br>
       <ul>
         <li class="extrali">【エクストラモード】</li>
         <!-- <form method="POST" action="/imoketu/ExtraServlet">  -->
