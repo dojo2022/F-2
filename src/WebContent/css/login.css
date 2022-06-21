@@ -56,3 +56,11 @@ h1{
  	background-size: cover;
 }
 
+#login_button{
+	min-width:100px;
+	font-family: 'Hachi Maru Pop', cursive;
+	background-color: #ff7377;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+  font-weight:bold;
+}

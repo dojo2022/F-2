@@ -85,6 +85,7 @@ li.menu_content_image{
 
 .aboutli{
   list-style: none;
+  font-weight:bold;
 }
 
 .extrali{
@@ -250,5 +251,7 @@ li.menu_content_image{
   right: 10px;
   text-decoration: none;
 }
+
+
 
 /* モーダルウィンドウくおわり */
