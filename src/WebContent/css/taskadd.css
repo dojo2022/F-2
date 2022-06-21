@@ -5,6 +5,8 @@
 body, html {
     height: 100%;
     font-family: 'Hachi Maru Pop', cursive;
+    background-image: url(../img/haikei.png);
+    background-repeat: no-repeat;
 }
 
 html *{
@@ -17,6 +19,9 @@ body {
     overflow-y: scroll;
 }
 
+h1 {
+	color: #ff5f4d
+}
 .adddiv {
 	width: 100%;
     margin: 0;
@@ -24,13 +29,22 @@ body {
 }
 
 .add_header {
-  height: 40px;
-  padding: 5px;
-  text-align: left;
-  border-style: solid;
+    font-size: 40px;
+    color: #ff5f4d;
+  	font-weight: bold;
+  	height: 24px;
+  	padding: 5px;
+  	text-align: left;
 }
 .title {
 	text-align: center;
+	background-color: #fff;
+    width: 500px;
+    margin: auto;
+    height: 300px;
+    margin-top: 93px;
+    border-radius: 10px;
+  	box-shadow: 0 0 0 7px #ffe3dc;
 }
 
 .title-name{
@@ -39,8 +53,36 @@ body {
 }
 
 .datetime {
-    width: 210px;
-    height: 40px;
-    margin-bottom: 30px;
+  	width: 260px;
+  	border-radius: 7px;
+  	height: 40px;
+  	margin-bottom: 30px;
+  	font-family: 'Hachi Maru Pop', cursive;
 }
+
+.taskname {
+  	width: 260px;
+  	height: 40px;
+  	border-radius: 7px;
+  	font-family: 'Hachi Maru Pop', cursive;
+}
+
+.clockdiv {
+  	background-color: #cdfcff;
+  	text-align: center;
+  	padding: 20px;
+  	border-radius: 30px;
+}
+
+.btn-regist {
+  	font-family: 'Hachi Maru Pop', cursive;
+  	background-color: #cdfcff;
+	border: 1px solid #40979d;
+	border-radius: 20px;
+	width: 100px;
+    height: 30px;
+    font-weight: bold;
+}
+
+
 
