@@ -5,6 +5,10 @@ body, html {
     background-image: url(../img/haikei.png);
     background-repeat: no-repeat;
 }
+#list {
+	margin: auto;
+	width: 900px;
+}
 .listdiv {
 	width: 100%;
     margin: 0;

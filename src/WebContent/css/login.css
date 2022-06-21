@@ -16,7 +16,8 @@ body, html {
 }
 h1{
 	font-weight: 100;
-	width: 500px;
+	padding: 20px;
+	width: 520px;
 	margin: auto;
 	text-align:center;
 	background-color: #ffd8e9;
@@ -36,10 +37,10 @@ h1{
     border-radius: 7px;
 }
 .image{
-	width: 200px;
+	width: 300px;
     position: relative;
     left: 70%;
-    bottom: 315px
+    bottom: 477px
 }
 
 #bg-video{
