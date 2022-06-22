@@ -64,7 +64,7 @@
           <li class="aboutli">エクストラモードでは登録されている音声を自由に再生することができるわよ。罵られたいあなたには最適ね(|｜!￣Д￣)</li>
       </ul>
       </div>
-      <br>
+      <div style="margin-top:5px"></div>
       <ul>
         <li class="extrali">【エクストラモード】</li>
         <!-- <form method="POST" action="/imoketu/ExtraServlet">  -->
