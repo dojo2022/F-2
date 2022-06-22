@@ -110,22 +110,22 @@ table#list th, table#list td {
 
 .haikei{
 	padding: 1px;
+	margin-top: 7px;
     background-color: #fff;
     width: 1000px;
-    margin: auto;
     border-radius: 10px;
     box-shadow: 0 0 0 7px #ffe3dc;
     margin-left: 40px;
 }
 
 li.aboutli{
+	padding-left: 10px;
 	margin-left: -40px;
 }
 
 #sasikae{
 	text-align : center;
 }
-
 
 
 

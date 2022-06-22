@@ -5,15 +5,28 @@ body, html {
 }
 
 #login_form{
+    position: relative;
+    top: 5px;
     padding: 30px;
     text-align: center;
-    background-color: #ffeed8;
+    background-color: #FFEED8;
     border-radius: 20px;
-    width: 500px;
+    width: 504px;
+    height: 170px;
     border-style: none;
     margin: auto;
     margin-top: 80px;
 }
+
+.formout{
+	margin: auto;
+    height: 241px;
+    width: 600nx;
+    background-color: #ffb0f7;
+    width: 576px;
+    border-radius: 20px
+}
+
 h1{
 	font-weight: 100;
 	padding: 20px;
@@ -32,15 +45,23 @@ h1{
 }
 
 #password{
-	margin-left: 10px;
+	margin-left: 15px;
     height: 30px;
     border-radius: 7px;
 }
+
 .image{
 	width: 300px;
     position: relative;
     left: 70%;
     bottom: 477px
+}
+
+.imageegao{
+	width: 300px;
+	position: relative;
+	right: 15%;
+	bottom: 465px;
 }
 
 #bg-video{
@@ -59,9 +80,25 @@ h1{
 #login_button{
 	min-width:100px;
 	font-family: 'Hachi Maru Pop', cursive;
-	background-color: #ff7377;
-	border: 1px solid #40979d;
 	border-radius: 20px;
-  font-weight:bold;
-  margin-left: 20px;
+	height: 38px;
+   	width: 120px;
+    background-color: #FF7377;
+    border: 1px solid #FF7377;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF8095;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FFE6EA;
+  border-radius: 5px;
 }
