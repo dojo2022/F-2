@@ -124,26 +124,27 @@ $(function(){
         music.play();  //サウンドを再生
         if($(this).attr('id') == "2"){
         	document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
-            document.getElementById("sasi").src = "./img/asabefore1-2ver2.jpg";
+            document.getElementById("sasi").src = "./img/asabefore1-2Ver3.jpg";
         }
         if($(this).attr('id') == "3"){
         	document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
-        	document.getElementById("sasi").src = "./img/asabefore1-2ver2.jpg";
+        	document.getElementById("sasi").src = "./img/asabefore1-2Ver3.jpg";
         }
         if($(this).attr('id') == "4"){
         	document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
-        	document.getElementById("sasi").src = "./img/touzituasaVer2.jpg";
+        	document.getElementById("sasi").src = "./img/touzituasaVer3.jpg";
         }
         if($(this).attr('id') == "5"){
         	document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
-        	document.getElementById("sasi").src = "./img/yugatabefore3ver2.jpg";
+        	document.getElementById("sasi").src = "./img/yugatabefore3ver3.jpg";
         }
         if($(this).attr('id') == "6"){
         	document.getElementById("test").innerText = "バカ兄貴ーはやしくしろー！！";
-        	document.getElementById("sasi").src = "./img/notcompletebefore1andoverver2.jpg";
+        	document.getElementById("sasi").src = "./img/before1timeoverVer3.jpg";
         }
         if($(this).attr('id') == "12"){
         	document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
+        	document.getElementById("sasi").src = "./img/before1timeoverVer3.jpg";
         }
 		//音声再生が終了したらボタンを有効化
 		music.onended = function(){
