@@ -115,9 +115,7 @@ table#list th, table#list td {
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 0 0 7px #ffe3dc;
-    position: relative;
-    top: 6px;
-    right: 20px;
+    margin-left: 40px;
 }
 
 li.aboutli{

@@ -33,9 +33,9 @@
 <div class="title">
 <!-- フォーム -->
 	<h1>タスク名</h1>
-		<input type="text" id="taskname" class="taskname"placeholder="30文字以内でタスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30">
+		<input type="text" id="taskname" class="taskname"placeholder="30文字以内でタスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30" required>
 	<h1>締め切り</h1>
-		<input type="datetime-local" id=datetime class="datetime" name="tasklimit">
+		<input type="datetime-local" id=datetime class="datetime" name="tasklimit" required>
 	<div></div>
 		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
 <!-- フォーム終わり -->
