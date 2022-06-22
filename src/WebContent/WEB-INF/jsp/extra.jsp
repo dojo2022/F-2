@@ -124,7 +124,7 @@ $(function(){
         music.play();  //サウンドを再生
         if($(this).attr('id') == "2"){
         	document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
-            document.getElementById("sasi").src = "./img/yugatabefore3ver2.jpg";
+            document.getElementById("sasi").src = "./img/asabefore1-2ver2.jpg";
         }
         if($(this).attr('id') == "3"){
         	document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
@@ -132,6 +132,7 @@ $(function(){
         }
         if($(this).attr('id') == "4"){
         	document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
+        	document.getElementById("sasi").src = "./img/touzituasaVer2.jpg";
         }
         if($(this).attr('id') == "5"){
         	document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
