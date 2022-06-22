@@ -21,13 +21,14 @@
 				<input type="text" name="ID" id="user_id"><br><br>
 				パスワード
 				<input type="password" name="PW" id="password"><br><br>
-				<button name="submit" value="submit" type="submit" id="login_button">Login</button>
+				<button name="submit" value="submit" type="submit" id="login_button">ログイン</button>
 				<br>
 				<span id="error_message">${message}</span>
 			</form>
 		</div>
 		<div class="imagediv">
 			<img alt="妹" src="./img/03okoru.png" class="image">
+			<img alt="妹" src="./img/01egao.png" class="imageegao">
 		</div>
 </div>
 <script type="text/javascript">
