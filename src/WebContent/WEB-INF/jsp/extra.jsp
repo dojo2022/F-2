@@ -44,7 +44,7 @@
 				<li class="menu_content"><a class="menu_add" id="menu_extra"
 					href="/imoketu/ExtraServlet">about
 				</a></li>
-				<li class="menu_content_image"><a class="menu_add"><img src="./img/extraimageVer2.gif" class="image"></a></li>
+				<li class="menu_content_image"><a class="menu_add"><img src="./img/extraimageVer3.gif" class="image"></a></li>
 			</ul>
 		</div>
     <!-- メニューおわり -->
