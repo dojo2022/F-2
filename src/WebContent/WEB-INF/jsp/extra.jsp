@@ -21,8 +21,8 @@
       <div class="modal-contents"><%--ここに画像を差し込む --%>
         <a href="#!" class="modal-close">✕</a>
         <div class="modal-content">
-          <p id="test">test</p>
-          <div id="sasikae"><img src="./img/hiru1.jpg" id="sasi"></div>
+          <p id="test"></p>
+          <div id="sasikae"><img src="" id="sasi"></div>
         </div>
       </div>
     </div>

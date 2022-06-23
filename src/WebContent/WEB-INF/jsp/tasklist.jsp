@@ -208,10 +208,16 @@ $(function(){
 				  music.play();
 		      }
 		      //締め切り2時間前
-		      else if(keisan < 2){
+		      else if(keisan < 2 && keisan > 0){
 		    	  $("#begin"+num).css('display','none');
 				  $("#state_box"+num).val('着手');
 				  const music = new Audio("/imoketu/audio/009_着手2時間前.wav");
+				  music.play();
+		      }
+		      else if(keisan <= 0){
+		    	  $("#begin"+num).css('display','none');
+				  $("#state_box"+num).val('着手');
+				  const music = new Audio("/imoketu/audio/011_完了期限超過ver2.wav");
 				  music.play();
 		      }
 	    }
