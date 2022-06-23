@@ -31,15 +31,13 @@ public class TaskListServlet extends HttpServlet {
      */
     public TaskListServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 
@@ -52,7 +50,7 @@ public class TaskListServlet extends HttpServlet {
 		}
 
 
-		//User user = (User)session.getAttribute("id");
+
 		String loginId = (String) request.getSession().getAttribute("id");
 		System.out.println(loginId);
 
@@ -68,7 +66,6 @@ public class TaskListServlet extends HttpServlet {
 
 				// SQL文を準備する<ここを改造>
 				String sql = "select * from Task WHERE USER_ID = ?";
-				//String sql = "select * from Task ";
 
 				PreparedStatement pStmt = ((java.sql.Connection) conn).prepareStatement(sql);
 				pStmt.setString(1, loginId);
@@ -103,7 +100,6 @@ public class TaskListServlet extends HttpServlet {
 					try {
 						conn.close();
 					} catch (SQLException e) {
-						// TODO 自動生成された catch ブロック
 						e.printStackTrace();
 					}
 				}
@@ -123,8 +119,7 @@ public class TaskListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+
 	}
 
 }

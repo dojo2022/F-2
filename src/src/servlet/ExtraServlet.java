@@ -67,21 +67,14 @@ public class ExtraServlet extends HttpServlet {
 			audio.put("VP" + i, rs.getString("Audio_Path"));
 			i++;
 		};
-
-		//String[] Audio = {Integer.toString(audioid), audiopath};
-
-
-
 	}
 
 
 		catch (SQLException e) {
 			e.printStackTrace();
-			//cardList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			//cardList = null;
 		}
 		finally {
 			// データベースを切断
@@ -91,7 +84,6 @@ public class ExtraServlet extends HttpServlet {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					//cardList = null;
 				}
 			}
 		}
