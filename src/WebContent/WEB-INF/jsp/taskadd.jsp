@@ -32,7 +32,7 @@
      </div>
 <div class="title">
 <!-- フォーム -->
-<form method="POST" action="/imoketu/TaskAddServlet"class="form" id="add_form">
+
 	<h1>タスク名</h1>
 		<input type="text" id="taskname" class="taskname"placeholder="30文字以内でタスクを入力しなさいよね"class="title-name" name="taskname" maxlength="30" required>
 	<h1>締め切り</h1>
@@ -40,7 +40,7 @@
 	<div></div>
 		<input type="submit" id="register" class="btn-regist" name="REGIST" value="タスク追加">
 	<span id="errorMessage"></span>
-</form>
+
 <!-- フォーム終わり -->
 </div>
 </div>
