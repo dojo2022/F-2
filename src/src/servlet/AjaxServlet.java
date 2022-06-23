@@ -23,7 +23,7 @@ public class AjaxServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		Connection conn = null;
 
 			try {
@@ -69,7 +69,6 @@ public class AjaxServlet extends HttpServlet {
 					try {
 						conn.close();
 					} catch (SQLException e) {
-						// TODO 自動生成された catch ブロック
 						e.printStackTrace();
 					}
 				}

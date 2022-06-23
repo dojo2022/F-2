@@ -158,44 +158,6 @@ $(function(){
 
     });
 });
-/* 音声再生おわり */
-/*
-			  var log = function(type){
-				  console.log("test");
-				//音声再生処理
-				  if(type==1){
-					const music = new Audio("/imoketu/audio/002_未着手二日前.wav");
-					music.play();
-					document.getElementById("test").innerText = "明後日締め切りのタスクがあるわよ、ちゃんと余裕を持ってやりなさいよ";
-				  }else if(type==2){
-					const music = new Audio("/imoketu/audio/003_未着手一日前ver2.wav");
-					music.play();
-					document.getElementById("test").innerText = "明日締め切りのタスクがあるわよ、大丈夫なの？";
-				  }else if(type==3){
-					const music = new Audio("/imoketu/audio/004_未着手・未完了当日ver2.wav");
-					music.play();
-					document.getElementById("test").innerText = "今日締め切りのタスクがあるわよ、わかってるんでしょうね";
-				  }else if(type==4){
-					const music = new Audio("/imoketu/audio/005_未完了・未着手3時間前.wav");
-					music.play();
-					document.getElementById("test").innerText = "3時間前よ、はやくしなさいって！";
-				  }else if(type==5){
-					const music = new Audio("/imoketu/audio/006_未着手・未着手　1時間前.wav");
-					music.play();
-					document.getElementById("test").innerText = "バカ兄貴ーはやしくしろー！！";
-				  }else if(type==6){
-					const music = new Audio("/imoketu/audio/012_タスク期限超過.wav");
-					music.play();
-					document.getElementById("test").innerText = "はぁ...あきれた。何度いったらわかるの？";
-				  }
-				};
-				setTimeout(log, 5000,1);
-				setTimeout(log, 10000,2);
-				setTimeout(log, 15000,3);
-				setTimeout(log, 20000,4);
-				setTimeout(log, 25000,5);
-				setTimeout(log, 30000,6);
-*/
 </script>
 </body>
 </html>
