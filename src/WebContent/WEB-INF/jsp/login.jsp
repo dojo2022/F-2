@@ -32,11 +32,7 @@
 		</div>
 </div>
 <script type="text/javascript">
-		document
-				.getElementById("login_button")
-				.addEventListener(
-						"click",
-						function(e) {
+	document.getElementById("login_button").addEventListener("click",function(e) {
 							// リンクがクリックされたときの処理
 							const id_check = document
 									.getElementById('login_form').ID.value;
@@ -48,7 +44,7 @@
 								e.preventDefault(); // 画面遷移を無効化
 							}
 						}, false);
-	</script>
+</script>
 
 </body>
 

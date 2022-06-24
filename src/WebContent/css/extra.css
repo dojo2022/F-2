@@ -12,61 +12,63 @@ body, html {
 }
 
 .list_header {
-  font-size: 40px;
-  color: #ff5f4d;
-  font-weight: bold;
-  height: 24px;
-  padding: 5px;
-  text-align: left;
+    font-size: 40px;
+    color: #ff5f4d;
+    font-weight: bold;
+    height: 24px;
+  	padding: 5px;
+  	text-align: left;
 }
 
 div#table{
-  width: 950px;
-  height: 470px;
-  overflow-x: hidden;		/* はみ出した場合は、スクロールバーを表示する */
-  font-weight:1000;
-  font-size: 22px;
-  margin:7%;
-  color: #fff;
-  padding: 20px;
-  font-size: 22px;
-  background: #fff3f0;;
-  border: 2px dashed #F7F9CC;
-  border-radius: 10px;
-  box-shadow: 0 0 0 7px #ffe3dc;
+	width: 950px;
+	height: 470px;
+	overflow-x: hidden;		/* はみ出した場合は、スクロールバーを表示する */
+	font-weight:1000;
+	font-size: 22px;
+	margin:7%;
+	color: #fff;
+	padding: 20px;
+	font-size: 22px;
+	background: #fff3f0;;
+	border: 2px dashed #F7F9CC;
+	border-radius: 10px;
+	box-shadow: 0 0 0 7px #ffe3dc;
 }
+
 table#list th, table#list td {
-  border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
-  border-bottom-style: dotted;
-  border-bottom-color: black;
-  padding: 4px 16px 4px 0;
-  text-align: left;
-  white-space: nowrap;		/* 折り返さない */
-  font-weight:1000;
+    border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
+    border-bottom-style: dotted;
+    border-bottom-color: black;
+    padding: 4px 16px 4px 0;
+    text-align: left;
+    white-space: nowrap;		/* 折り返さない */
+    font-weight:1000;
 }
+
 .state {
-  width: 60px;
-  font-family: 'Hachi Maru Pop', cursive;
+    width: 60px;
+    font-family: 'Hachi Maru Pop', cursive;
 }
 
 .clockdiv {
-  background-color: #cdfcff;
-  text-align: center;
-  padding: 20px;
-  border-radius: 30px;
+    background-color: #cdfcff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #FF8095;
-  border-radius: 5px;
+    background: #FF8095;
+    border-radius: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFE6EA;
-  border-radius: 5px;
+    background: #FFE6EA;
+    border-radius: 5px;
 }
 
 .btn1 {

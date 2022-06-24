@@ -65,7 +65,7 @@ h1 {
   	height: 40px;
   	border-radius: 7px;
   	font-family: 'Hachi Maru Pop', cursive;
-  	 font-weight: bold;
+  	font-weight: bold;
 }
 
 .clockdiv {
@@ -84,17 +84,19 @@ h1 {
     height: 30px;
     font-weight: bold;
 }
-
+/*スクロールバーの装飾*/
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #FF8095;
-  border-radius: 5px;
+    background: #FF8095;
+    border-radius: 5px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #FFE6EA;
-  border-radius: 5px;
+    background: #FFE6EA;
+    border-radius: 5px;
 }
 
