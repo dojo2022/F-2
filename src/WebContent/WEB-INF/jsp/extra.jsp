@@ -69,17 +69,17 @@
         <li class="extrali">【エクストラモード】</li>
         <!-- <form method="POST" action="/imoketu/ExtraServlet">  -->
           <li class="extrali"><button class="button" type="button" id=${PathList["ID1"]} name=${PathList["VP1"]}>タスク追加時</button></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID2"]} name=${PathList["VP2"]}>未着手二日前</button></a></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID3"]} name=${PathList["VP3"]}>未着手一日前</button></a></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID4"]} name=${PathList["VP4"]}>未着手・未完了当日</button></a></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>未着手・未完了3時間前</button></a></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button  class="button" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>未着手・未完了1時間前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button2" type="button" id=${PathList["ID2"]} name=${PathList["VP2"]}>未着手二日前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button2" type="button" id=${PathList["ID3"]} name=${PathList["VP3"]}>未着手一日前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button2" type="button" id=${PathList["ID4"]} name=${PathList["VP4"]}>未着手・未完了当日</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button2" type="button" id=${PathList["ID5"]} name=${PathList["VP5"]}>未着手・未完了3時間前</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button  class="button2" type="button" id=${PathList["ID6"]} name=${PathList["VP6"]}>未着手・未完了1時間前</button></a></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID7"]} name=${PathList["VP7"]}>着手前日以前</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID8"]} name=${PathList["VP8"]}>着手当日</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID9"]} name=${PathList["VP9"]}>着手2時間前</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID10"]} name=${PathList["VP10"]}>完了時期限以内</button></li>
           <li class="extrali"><button class="button" type="button" id=${PathList["ID11"]} name=${PathList["VP11"]}>完了期限超過</button></li>
-          <li class="extrali" class="modal-open"><a href="#modal"><button class="button" type="button" id=${PathList["ID12"]} name=${PathList["VP12"]}>タスク期限超過</button></a></li>
+          <li class="extrali" class="modal-open"><a href="#modal"><button class="button2" type="button" id=${PathList["ID12"]} name=${PathList["VP12"]}>タスク期限超過</button></a></li>
           <li class="extrali"><button id="stop" class="stopbutton">停止</button></li>
       </ul>
     </div>
